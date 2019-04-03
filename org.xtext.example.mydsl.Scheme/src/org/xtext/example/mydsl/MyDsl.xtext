@@ -1,0 +1,98 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate scheme "http://www.xtext.org/example/mydsl/Scheme"
+
+Program:
+	(program+=Form)*;
+	
+Form:
+	definition+=Definition | expression+=Expression
+;
+	
+Definition:
+	variableDefinition=VariableDefinition
+;
+
+VariableDefinition:
+	'(' 'define' variable=ID expression=Expression ')' | 
+	'(' 'define' '(' variable=ID variables+=ID* ')' body=Body ')' |
+	'(' 'define' '(' variable=ID variables+=ID* '.' var=ID ')' body=Body ')'
+;
+
+Body:
+	definition+=Definition* expression+=Expression+
+;
+
+Expression:
+	constant=Constant
+	| oper=Operation
+	| cond=Conditional
+	| set=Set
+	| app=Application
+	| mult=MultipleCondition
+;
+
+Comparison:
+	{Comparison} ( '(' ('<' | '>' | '=' | '>=' | '<=') num1=NUMBER num2=NUMBER ')' | BOOL)
+;
+
+MultipleCondition:
+	'(' 'cond' ('(' comp+=Comparison exp+=Expression ')') ('(' 'else' expression=Expression ')')?
+;
+
+Application:
+	'(' expression=Expression expressions+=Expression* ')'
+;
+
+Set:
+	'(' 'set!' cons=Constant expression=Expression ')'
+;
+
+Conditional:
+	'(' 'if' condition=Comparison iftrue=Expression (else=Expression)? ')'
+;
+
+Constant:
+	BOOL | INT | DOUBLE | STRING | ID | LETTER
+;
+
+Operation:
+	operation='(' operator=OPER '\\s' numb+=NUMBER* '\\s' numb2+=NUMBER* ')'
+;
+
+IDscheme:
+	//('^')?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	
+	init=Initial subs+=Subsequent*
+;
+
+Initial:
+	init = (LETTER | '!' | '$' | '%' | '&' | '*' | '/' | ':' | '<' | '=' | '>' | '?' | '~' | '_' | '^')
+;
+
+Subsequent:
+	{Subsequent} (init=Initial | DIGIT | '.' | '+' | '-')
+;
+
+terminal LETTER:
+	('a'..'z'|'A'..'Z')
+;
+
+terminal DIGIT:
+	('0'..'9')*
+;
+
+terminal OPER:
+	'+' | '-' | '*' | '/' | 'expt';
+
+terminal BOOL:
+	'#t' | '#f';
+
+terminal DOUBLE:
+	INT '.' INT;
+	
+terminal NUMBER:
+	DIGIT | DOUBLE;
+
+//terminal OPERCOMB:
+//	'<' | '>' | '=' | '>=' | '<=';
