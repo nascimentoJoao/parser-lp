@@ -3,20 +3,11 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 generate scheme "http://www.xtext.org/example/mydsl/Scheme"
 
 Program:
-	(program+=Form)*;
-	
-Form:
-	definition+=Definition | expression+=Expression
-;
+	(program+=Expression | program+=Definition)*;
 	
 Definition:
-	variableDefinition=VariableDefinition
-;
-
-VariableDefinition:
-	'(' 'define' variable=ID expression=Expression ')' | 
-	'(' 'define' '(' variable=ID variables+=ID* ')' body=Body ')' |
-	'(' 'define' '(' variable=ID variables+=ID* '.' var=ID ')' body=Body ')'
+	'(' 'define' cons=Constant expression=Expression ')'
+		| '(' 'define' '(' variable=ID variables+=ID* ')' body=Body ')'
 ;
 
 Body:
@@ -26,22 +17,13 @@ Body:
 Expression:
 	constant=Constant
 	| oper=Operation
+	| comp=Comparison
 	| cond=Conditional
 	| set=Set
-	| app=Application
-	| mult=MultipleCondition
 ;
 
 Comparison:
-	{Comparison} ( '(' ('<' | '>' | '=' | '>=' | '<=') num1=NUMBER num2=NUMBER ')' | BOOL)
-;
-
-MultipleCondition:
-	'(' 'cond' ('(' comp+=Comparison exp+=Expression ')') ('(' 'else' expression=Expression ')')?
-;
-
-Application:
-	'(' expression=Expression expressions+=Expression* ')'
+	{Comparison} ('(' ('<' | '>' | '=' | '>=' | '<=') num1=Number num2=Number ')' | BOOL)
 ;
 
 Set:
@@ -53,46 +35,30 @@ Conditional:
 ;
 
 Constant:
-	BOOL | INT | DOUBLE | STRING | ID | LETTER
+	BOOL | DIGIT | DOUBLE | STRING | ID | LETTER
 ;
 
 Operation:
-	operation='(' operator=OPER '\\s' numb+=NUMBER* '\\s' numb2+=NUMBER* ')'
+	operation = '(' OPER (numb+=Number)* ')'
 ;
 
-IDscheme:
-	//('^')?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-	
-	init=Initial subs+=Subsequent*
-;
-
-Initial:
-	init = (LETTER | '!' | '$' | '%' | '&' | '*' | '/' | ':' | '<' | '=' | '>' | '?' | '~' | '_' | '^')
-;
-
-Subsequent:
-	{Subsequent} (init=Initial | DIGIT | '.' | '+' | '-')
+Number:
+	DIGIT | DOUBLE
 ;
 
 terminal LETTER:
 	('a'..'z'|'A'..'Z')
 ;
 
-terminal DIGIT:
-	('0'..'9')*
-;
-
 terminal OPER:
-	'+' | '-' | '*' | '/' | 'expt';
+	'+' | '-' | '*' | '/';
 
 terminal BOOL:
 	'#t' | '#f';
 
 terminal DOUBLE:
-	INT '.' INT;
-	
-terminal NUMBER:
-	DIGIT | DOUBLE;
+	DIGIT '.' DIGIT;
 
-//terminal OPERCOMB:
-//	'<' | '>' | '=' | '>=' | '<=';
+terminal DIGIT:
+	'0'..'9'
+;
