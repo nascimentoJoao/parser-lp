@@ -2,6 +2,17 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate scheme "http://www.xtext.org/example/mydsl/Scheme"
 
+/*
+ * Pontifícia Universidade Católica do Rio Grande do Sul
+ * Linguagens de Programação 2019/1
+ * Gregory Lagranha
+ * João Alberto do Nascimento
+ * 
+ * Fontes: 
+ * 		https://web-artanis.com/scheme.html
+ * 		https://www.scheme.com/tspl2d/grammar.html
+ */
+
 Program:
 	(program+=Expression | program+=Definition)*;
 	
@@ -20,10 +31,19 @@ Expression:
 	| comp=Comparison
 	| cond=Conditional
 	| set=Set
+	| trig=Trigonometry
+	| list=ListNumbers
+	| listLength=ListLength
+	| nestedOperation=NestedOperation
+	| calculate=Calculate
 ;
 
 Comparison:
 	{Comparison} ('(' ('<' | '>' | '=' | '>=' | '<=') num1=Number num2=Number ')' | BOOL)
+;
+
+Trigonometry:
+	trig = '(' MATH (numb+=Number) ')'
 ;
 
 Set:
@@ -35,30 +55,53 @@ Conditional:
 ;
 
 Constant:
-	BOOL | DIGIT | DOUBLE | STRING | ID | LETTER
+	BOOL | DIGIT | DOUBLE | STRING | ID | LETTER | NEGATIVE
+;
+
+NestedOperation:
+	nestedOperation = '(' calculate+=Calculate operation+=Operation ')'
 ;
 
 Operation:
-	operation = '(' OPER (numb+=Number)* ')'
+	operation = '(' calculate+=Calculate ')'
+;
+
+Calculate:
+	calculate = OPER (numb+=Number*)
+;
+
+ListNumbers:
+	{ListNumbers} '(' 'list' (number+=Number*) ')'
+;
+
+ListLength:
+	{ListLength} '(' 'length' listNumbers+=ListNumbers ')'
 ;
 
 Number:
 	DIGIT | DOUBLE
 ;
 
-terminal LETTER:
-	('a'..'z'|'A'..'Z')
+terminal MATH:
+	'cos' | 'abs' | 'square'
 ;
 
+terminal LETTER:
+	('a'..'z'|'A'..'Z');
+
 terminal OPER:
-	'+' | '-' | '*' | '/';
+	'+' | '-' | '*' | '/' | 'expt' | 'quotient' | 'remainder';
 
 terminal BOOL:
 	'#t' | '#f';
+
+terminal NEGATIVE:
+	'-' DIGIT
+;
 
 terminal DOUBLE:
 	DIGIT '.' DIGIT;
 
 terminal DIGIT:
-	'0'..'9'
+	('0'..'9')*
 ;

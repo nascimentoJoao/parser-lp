@@ -66,20 +66,18 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
     switch (eClass.getClassifierID())
     {
       case SchemePackage.PROGRAM: return createProgram();
-      case SchemePackage.FORM: return createForm();
       case SchemePackage.DEFINITION: return createDefinition();
-      case SchemePackage.VARIABLE_DEFINITION: return createVariableDefinition();
       case SchemePackage.BODY: return createBody();
       case SchemePackage.EXPRESSION: return createExpression();
       case SchemePackage.COMPARISON: return createComparison();
-      case SchemePackage.MULTIPLE_CONDITION: return createMultipleCondition();
-      case SchemePackage.APPLICATION: return createApplication();
+      case SchemePackage.TRIGONOMETRY: return createTrigonometry();
       case SchemePackage.SET: return createSet();
       case SchemePackage.CONDITIONAL: return createConditional();
+      case SchemePackage.NESTED_OPERATION: return createNestedOperation();
       case SchemePackage.OPERATION: return createOperation();
-      case SchemePackage.IDSCHEME: return createIDscheme();
-      case SchemePackage.INITIAL: return createInitial();
-      case SchemePackage.SUBSEQUENT: return createSubsequent();
+      case SchemePackage.CALCULATE: return createCalculate();
+      case SchemePackage.LIST_NUMBERS: return createListNumbers();
+      case SchemePackage.LIST_LENGTH: return createListLength();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -103,34 +101,10 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
-  public Form createForm()
-  {
-    FormImpl form = new FormImpl();
-    return form;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Definition createDefinition()
   {
     DefinitionImpl definition = new DefinitionImpl();
     return definition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public VariableDefinition createVariableDefinition()
-  {
-    VariableDefinitionImpl variableDefinition = new VariableDefinitionImpl();
-    return variableDefinition;
   }
 
   /**
@@ -175,22 +149,10 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
-  public MultipleCondition createMultipleCondition()
+  public Trigonometry createTrigonometry()
   {
-    MultipleConditionImpl multipleCondition = new MultipleConditionImpl();
-    return multipleCondition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Application createApplication()
-  {
-    ApplicationImpl application = new ApplicationImpl();
-    return application;
+    TrigonometryImpl trigonometry = new TrigonometryImpl();
+    return trigonometry;
   }
 
   /**
@@ -223,6 +185,18 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
+  public NestedOperation createNestedOperation()
+  {
+    NestedOperationImpl nestedOperation = new NestedOperationImpl();
+    return nestedOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Operation createOperation()
   {
     OperationImpl operation = new OperationImpl();
@@ -235,10 +209,10 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
-  public IDscheme createIDscheme()
+  public Calculate createCalculate()
   {
-    IDschemeImpl iDscheme = new IDschemeImpl();
-    return iDscheme;
+    CalculateImpl calculate = new CalculateImpl();
+    return calculate;
   }
 
   /**
@@ -247,10 +221,10 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
-  public Initial createInitial()
+  public ListNumbers createListNumbers()
   {
-    InitialImpl initial = new InitialImpl();
-    return initial;
+    ListNumbersImpl listNumbers = new ListNumbersImpl();
+    return listNumbers;
   }
 
   /**
@@ -259,10 +233,10 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
    * @generated
    */
   @Override
-  public Subsequent createSubsequent()
+  public ListLength createListLength()
   {
-    SubsequentImpl subsequent = new SubsequentImpl();
-    return subsequent;
+    ListLengthImpl listLength = new ListLengthImpl();
+    return listLength;
   }
 
   /**

@@ -16,10 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getConstant <em>Constant</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getOper <em>Oper</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getComp <em>Comp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getCond <em>Cond</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getSet <em>Set</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getApp <em>App</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getMult <em>Mult</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getTrig <em>Trig</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getListLength <em>List Length</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getNestedOperation <em>Nested Operation</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Expression#getCalculate <em>Calculate</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression()
@@ -73,6 +77,28 @@ public interface Expression extends EObject
   void setOper(Operation value);
 
   /**
+   * Returns the value of the '<em><b>Comp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comp</em>' containment reference.
+   * @see #setComp(Comparison)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_Comp()
+   * @model containment="true"
+   * @generated
+   */
+  Comparison getComp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getComp <em>Comp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Comp</em>' containment reference.
+   * @see #getComp()
+   * @generated
+   */
+  void setComp(Comparison value);
+
+  /**
    * Returns the value of the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -117,47 +143,113 @@ public interface Expression extends EObject
   void setSet(Set value);
 
   /**
-   * Returns the value of the '<em><b>App</b></em>' containment reference.
+   * Returns the value of the '<em><b>Trig</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>App</em>' containment reference.
-   * @see #setApp(Application)
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_App()
+   * @return the value of the '<em>Trig</em>' containment reference.
+   * @see #setTrig(Trigonometry)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_Trig()
    * @model containment="true"
    * @generated
    */
-  Application getApp();
+  Trigonometry getTrig();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getApp <em>App</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getTrig <em>Trig</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>App</em>' containment reference.
-   * @see #getApp()
+   * @param value the new value of the '<em>Trig</em>' containment reference.
+   * @see #getTrig()
    * @generated
    */
-  void setApp(Application value);
+  void setTrig(Trigonometry value);
 
   /**
-   * Returns the value of the '<em><b>Mult</b></em>' containment reference.
+   * Returns the value of the '<em><b>List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mult</em>' containment reference.
-   * @see #setMult(MultipleCondition)
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_Mult()
+   * @return the value of the '<em>List</em>' containment reference.
+   * @see #setList(ListNumbers)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_List()
    * @model containment="true"
    * @generated
    */
-  MultipleCondition getMult();
+  ListNumbers getList();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getMult <em>Mult</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getList <em>List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Mult</em>' containment reference.
-   * @see #getMult()
+   * @param value the new value of the '<em>List</em>' containment reference.
+   * @see #getList()
    * @generated
    */
-  void setMult(MultipleCondition value);
+  void setList(ListNumbers value);
+
+  /**
+   * Returns the value of the '<em><b>List Length</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>List Length</em>' containment reference.
+   * @see #setListLength(ListLength)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_ListLength()
+   * @model containment="true"
+   * @generated
+   */
+  ListLength getListLength();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getListLength <em>List Length</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>List Length</em>' containment reference.
+   * @see #getListLength()
+   * @generated
+   */
+  void setListLength(ListLength value);
+
+  /**
+   * Returns the value of the '<em><b>Nested Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nested Operation</em>' containment reference.
+   * @see #setNestedOperation(NestedOperation)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_NestedOperation()
+   * @model containment="true"
+   * @generated
+   */
+  NestedOperation getNestedOperation();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getNestedOperation <em>Nested Operation</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nested Operation</em>' containment reference.
+   * @see #getNestedOperation()
+   * @generated
+   */
+  void setNestedOperation(NestedOperation value);
+
+  /**
+   * Returns the value of the '<em><b>Calculate</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Calculate</em>' containment reference.
+   * @see #setCalculate(Calculate)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getExpression_Calculate()
+   * @model containment="true"
+   * @generated
+   */
+  Calculate getCalculate();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Expression#getCalculate <em>Calculate</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Calculate</em>' containment reference.
+   * @see #getCalculate()
+   * @generated
+   */
+  void setCalculate(Calculate value);
 
 } // Expression

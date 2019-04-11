@@ -86,43 +86,6 @@ public interface SchemePackage extends EPackage
   int PROGRAM_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.FormImpl <em>Form</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.FormImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getForm()
-   * @generated
-   */
-  int FORM = 1;
-
-  /**
-   * The feature id for the '<em><b>Definition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORM__DEFINITION = 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORM__EXPRESSION = 1;
-
-  /**
-   * The number of structural features of the '<em>Form</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORM_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.DefinitionImpl <em>Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,44 +93,16 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getDefinition()
    * @generated
    */
-  int DEFINITION = 2;
+  int DEFINITION = 1;
 
   /**
-   * The feature id for the '<em><b>Variable Definition</b></em>' containment reference.
+   * The feature id for the '<em><b>Cons</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINITION__VARIABLE_DEFINITION = 0;
-
-  /**
-   * The number of structural features of the '<em>Definition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEFINITION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.VariableDefinitionImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getVariableDefinition()
-   * @generated
-   */
-  int VARIABLE_DEFINITION = 3;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DEFINITION__VARIABLE = 0;
+  int DEFINITION__CONS = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -176,7 +111,16 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__EXPRESSION = 1;
+  int DEFINITION__EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__VARIABLE = 2;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -185,7 +129,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__VARIABLES = 2;
+  int DEFINITION__VARIABLES = 3;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -194,25 +138,16 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__BODY = 3;
+  int DEFINITION__BODY = 4;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
+   * The number of structural features of the '<em>Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__VAR = 4;
-
-  /**
-   * The number of structural features of the '<em>Variable Definition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DEFINITION_FEATURE_COUNT = 5;
+  int DEFINITION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.BodyImpl <em>Body</em>}' class.
@@ -222,7 +157,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getBody()
    * @generated
    */
-  int BODY = 4;
+  int BODY = 2;
 
   /**
    * The feature id for the '<em><b>Definition</b></em>' containment reference list.
@@ -259,7 +194,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 5;
+  int EXPRESSION = 3;
 
   /**
    * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -280,13 +215,22 @@ public interface SchemePackage extends EPackage
   int EXPRESSION__OPER = 1;
 
   /**
+   * The feature id for the '<em><b>Comp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__COMP = 2;
+
+  /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__COND = 2;
+  int EXPRESSION__COND = 3;
 
   /**
    * The feature id for the '<em><b>Set</b></em>' containment reference.
@@ -295,25 +239,52 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__SET = 3;
+  int EXPRESSION__SET = 4;
 
   /**
-   * The feature id for the '<em><b>App</b></em>' containment reference.
+   * The feature id for the '<em><b>Trig</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__APP = 4;
+  int EXPRESSION__TRIG = 5;
 
   /**
-   * The feature id for the '<em><b>Mult</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__MULT = 5;
+  int EXPRESSION__LIST = 6;
+
+  /**
+   * The feature id for the '<em><b>List Length</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__LIST_LENGTH = 7;
+
+  /**
+   * The feature id for the '<em><b>Nested Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__NESTED_OPERATION = 8;
+
+  /**
+   * The feature id for the '<em><b>Calculate</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__CALCULATE = 9;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -322,7 +293,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 6;
+  int EXPRESSION_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -332,7 +303,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 6;
+  int COMPARISON = 4;
 
   /**
    * The feature id for the '<em><b>Num1</b></em>' attribute.
@@ -362,87 +333,41 @@ public interface SchemePackage extends EPackage
   int COMPARISON_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.MultipleConditionImpl <em>Multiple Condition</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.TrigonometryImpl <em>Trigonometry</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.MultipleConditionImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getMultipleCondition()
+   * @see org.xtext.example.mydsl.scheme.impl.TrigonometryImpl
+   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getTrigonometry()
    * @generated
    */
-  int MULTIPLE_CONDITION = 7;
+  int TRIGONOMETRY = 5;
 
   /**
-   * The feature id for the '<em><b>Comp</b></em>' containment reference list.
+   * The feature id for the '<em><b>Trig</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLE_CONDITION__COMP = 0;
+  int TRIGONOMETRY__TRIG = 0;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference list.
+   * The feature id for the '<em><b>Numb</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLE_CONDITION__EXP = 1;
+  int TRIGONOMETRY__NUMB = 1;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The number of structural features of the '<em>Trigonometry</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLE_CONDITION__EXPRESSION = 2;
-
-  /**
-   * The number of structural features of the '<em>Multiple Condition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLE_CONDITION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.ApplicationImpl <em>Application</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.ApplicationImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getApplication()
-   * @generated
-   */
-  int APPLICATION = 8;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION__EXPRESSION = 0;
-
-  /**
-   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION__EXPRESSIONS = 1;
-
-  /**
-   * The number of structural features of the '<em>Application</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION_FEATURE_COUNT = 2;
+  int TRIGONOMETRY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.SetImpl <em>Set</em>}' class.
@@ -452,7 +377,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getSet()
    * @generated
    */
-  int SET = 9;
+  int SET = 6;
 
   /**
    * The feature id for the '<em><b>Cons</b></em>' attribute.
@@ -489,7 +414,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getConditional()
    * @generated
    */
-  int CONDITIONAL = 10;
+  int CONDITIONAL = 7;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -528,6 +453,52 @@ public interface SchemePackage extends EPackage
   int CONDITIONAL_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.NestedOperationImpl <em>Nested Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.scheme.impl.NestedOperationImpl
+   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getNestedOperation()
+   * @generated
+   */
+  int NESTED_OPERATION = 8;
+
+  /**
+   * The feature id for the '<em><b>Nested Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_OPERATION__NESTED_OPERATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Calculate</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_OPERATION__CALCULATE = 1;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_OPERATION__OPERATION = 2;
+
+  /**
+   * The number of structural features of the '<em>Nested Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_OPERATION_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.OperationImpl <em>Operation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -535,7 +506,7 @@ public interface SchemePackage extends EPackage
    * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 11;
+  int OPERATION = 9;
 
   /**
    * The feature id for the '<em><b>Operation</b></em>' attribute.
@@ -547,31 +518,13 @@ public interface SchemePackage extends EPackage
   int OPERATION__OPERATION = 0;
 
   /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * The feature id for the '<em><b>Calculate</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__OPERATOR = 1;
-
-  /**
-   * The feature id for the '<em><b>Numb</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__NUMB = 2;
-
-  /**
-   * The feature id for the '<em><b>Numb2</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__NUMB2 = 3;
+  int OPERATION__CALCULATE = 1;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -580,100 +533,100 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_FEATURE_COUNT = 4;
+  int OPERATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.IDschemeImpl <em>IDscheme</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.CalculateImpl <em>Calculate</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.IDschemeImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getIDscheme()
+   * @see org.xtext.example.mydsl.scheme.impl.CalculateImpl
+   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getCalculate()
    * @generated
    */
-  int IDSCHEME = 12;
+  int CALCULATE = 10;
 
   /**
-   * The feature id for the '<em><b>Init</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDSCHEME__INIT = 0;
-
-  /**
-   * The feature id for the '<em><b>Subs</b></em>' containment reference list.
+   * The feature id for the '<em><b>Calculate</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDSCHEME__SUBS = 1;
+  int CALCULATE__CALCULATE = 0;
 
   /**
-   * The number of structural features of the '<em>IDscheme</em>' class.
+   * The feature id for the '<em><b>Numb</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDSCHEME_FEATURE_COUNT = 2;
+  int CALCULATE__NUMB = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.InitialImpl <em>Initial</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.InitialImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getInitial()
-   * @generated
-   */
-  int INITIAL = 13;
-
-  /**
-   * The feature id for the '<em><b>Init</b></em>' attribute.
+   * The number of structural features of the '<em>Calculate</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INITIAL__INIT = 0;
+  int CALCULATE_FEATURE_COUNT = 2;
 
   /**
-   * The number of structural features of the '<em>Initial</em>' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.ListNumbersImpl <em>List Numbers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.scheme.impl.ListNumbersImpl
+   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getListNumbers()
+   * @generated
+   */
+  int LIST_NUMBERS = 11;
+
+  /**
+   * The feature id for the '<em><b>Number</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INITIAL_FEATURE_COUNT = 1;
+  int LIST_NUMBERS__NUMBER = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.SubsequentImpl <em>Subsequent</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.scheme.impl.SubsequentImpl
-   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getSubsequent()
-   * @generated
-   */
-  int SUBSEQUENT = 14;
-
-  /**
-   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * The number of structural features of the '<em>List Numbers</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUBSEQUENT__INIT = 0;
+  int LIST_NUMBERS_FEATURE_COUNT = 1;
 
   /**
-   * The number of structural features of the '<em>Subsequent</em>' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.scheme.impl.ListLengthImpl <em>List Length</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.scheme.impl.ListLengthImpl
+   * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getListLength()
+   * @generated
+   */
+  int LIST_LENGTH = 12;
+
+  /**
+   * The feature id for the '<em><b>List Numbers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUBSEQUENT_FEATURE_COUNT = 1;
+  int LIST_LENGTH__LIST_NUMBERS = 0;
+
+  /**
+   * The number of structural features of the '<em>List Length</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_LENGTH_FEATURE_COUNT = 1;
 
 
   /**
@@ -698,38 +651,6 @@ public interface SchemePackage extends EPackage
   EReference getProgram_Program();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Form <em>Form</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Form</em>'.
-   * @see org.xtext.example.mydsl.scheme.Form
-   * @generated
-   */
-  EClass getForm();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.Form#getDefinition <em>Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Definition</em>'.
-   * @see org.xtext.example.mydsl.scheme.Form#getDefinition()
-   * @see #getForm()
-   * @generated
-   */
-  EReference getForm_Definition();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.Form#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.scheme.Form#getExpression()
-   * @see #getForm()
-   * @generated
-   */
-  EReference getForm_Expression();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Definition <em>Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -740,80 +661,59 @@ public interface SchemePackage extends EPackage
   EClass getDefinition();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Definition#getVariableDefinition <em>Variable Definition</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Definition#getCons <em>Cons</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable Definition</em>'.
-   * @see org.xtext.example.mydsl.scheme.Definition#getVariableDefinition()
+   * @return the meta object for the attribute '<em>Cons</em>'.
+   * @see org.xtext.example.mydsl.scheme.Definition#getCons()
    * @see #getDefinition()
    * @generated
    */
-  EReference getDefinition_VariableDefinition();
+  EAttribute getDefinition_Cons();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.VariableDefinition <em>Variable Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Definition</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition
-   * @generated
-   */
-  EClass getVariableDefinition();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.VariableDefinition#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Variable</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition#getVariable()
-   * @see #getVariableDefinition()
-   * @generated
-   */
-  EAttribute getVariableDefinition_Variable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.VariableDefinition#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Definition#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition#getExpression()
-   * @see #getVariableDefinition()
+   * @see org.xtext.example.mydsl.scheme.Definition#getExpression()
+   * @see #getDefinition()
    * @generated
    */
-  EReference getVariableDefinition_Expression();
+  EReference getDefinition_Expression();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.VariableDefinition#getVariables <em>Variables</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Definition#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see org.xtext.example.mydsl.scheme.Definition#getVariable()
+   * @see #getDefinition()
+   * @generated
+   */
+  EAttribute getDefinition_Variable();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.Definition#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Variables</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition#getVariables()
-   * @see #getVariableDefinition()
+   * @see org.xtext.example.mydsl.scheme.Definition#getVariables()
+   * @see #getDefinition()
    * @generated
    */
-  EAttribute getVariableDefinition_Variables();
+  EAttribute getDefinition_Variables();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.VariableDefinition#getBody <em>Body</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Definition#getBody <em>Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition#getBody()
-   * @see #getVariableDefinition()
+   * @see org.xtext.example.mydsl.scheme.Definition#getBody()
+   * @see #getDefinition()
    * @generated
    */
-  EReference getVariableDefinition_Body();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.VariableDefinition#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition#getVar()
-   * @see #getVariableDefinition()
-   * @generated
-   */
-  EAttribute getVariableDefinition_Var();
+  EReference getDefinition_Body();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Body <em>Body</em>}'.
@@ -880,6 +780,17 @@ public interface SchemePackage extends EPackage
   EReference getExpression_Oper();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getComp <em>Comp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Comp</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getComp()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Comp();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getCond <em>Cond</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -902,26 +813,59 @@ public interface SchemePackage extends EPackage
   EReference getExpression_Set();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getApp <em>App</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getTrig <em>Trig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>App</em>'.
-   * @see org.xtext.example.mydsl.scheme.Expression#getApp()
+   * @return the meta object for the containment reference '<em>Trig</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getTrig()
    * @see #getExpression()
    * @generated
    */
-  EReference getExpression_App();
+  EReference getExpression_Trig();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getMult <em>Mult</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Mult</em>'.
-   * @see org.xtext.example.mydsl.scheme.Expression#getMult()
+   * @return the meta object for the containment reference '<em>List</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getList()
    * @see #getExpression()
    * @generated
    */
-  EReference getExpression_Mult();
+  EReference getExpression_List();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getListLength <em>List Length</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>List Length</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getListLength()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_ListLength();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getNestedOperation <em>Nested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Nested Operation</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getNestedOperation()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_NestedOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Expression#getCalculate <em>Calculate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Calculate</em>'.
+   * @see org.xtext.example.mydsl.scheme.Expression#getCalculate()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Calculate();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Comparison <em>Comparison</em>}'.
@@ -956,79 +900,36 @@ public interface SchemePackage extends EPackage
   EAttribute getComparison_Num2();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.MultipleCondition <em>Multiple Condition</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Trigonometry <em>Trigonometry</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Multiple Condition</em>'.
-   * @see org.xtext.example.mydsl.scheme.MultipleCondition
+   * @return the meta object for class '<em>Trigonometry</em>'.
+   * @see org.xtext.example.mydsl.scheme.Trigonometry
    * @generated
    */
-  EClass getMultipleCondition();
+  EClass getTrigonometry();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.MultipleCondition#getComp <em>Comp</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Trigonometry#getTrig <em>Trig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Comp</em>'.
-   * @see org.xtext.example.mydsl.scheme.MultipleCondition#getComp()
-   * @see #getMultipleCondition()
+   * @return the meta object for the attribute '<em>Trig</em>'.
+   * @see org.xtext.example.mydsl.scheme.Trigonometry#getTrig()
+   * @see #getTrigonometry()
    * @generated
    */
-  EReference getMultipleCondition_Comp();
+  EAttribute getTrigonometry_Trig();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.MultipleCondition#getExp <em>Exp</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.Trigonometry#getNumb <em>Numb</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exp</em>'.
-   * @see org.xtext.example.mydsl.scheme.MultipleCondition#getExp()
-   * @see #getMultipleCondition()
+   * @return the meta object for the attribute list '<em>Numb</em>'.
+   * @see org.xtext.example.mydsl.scheme.Trigonometry#getNumb()
+   * @see #getTrigonometry()
    * @generated
    */
-  EReference getMultipleCondition_Exp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.MultipleCondition#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.scheme.MultipleCondition#getExpression()
-   * @see #getMultipleCondition()
-   * @generated
-   */
-  EReference getMultipleCondition_Expression();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Application <em>Application</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Application</em>'.
-   * @see org.xtext.example.mydsl.scheme.Application
-   * @generated
-   */
-  EClass getApplication();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Application#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.scheme.Application#getExpression()
-   * @see #getApplication()
-   * @generated
-   */
-  EReference getApplication_Expression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.Application#getExpressions <em>Expressions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expressions</em>'.
-   * @see org.xtext.example.mydsl.scheme.Application#getExpressions()
-   * @see #getApplication()
-   * @generated
-   */
-  EReference getApplication_Expressions();
+  EAttribute getTrigonometry_Numb();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Set <em>Set</em>}'.
@@ -1106,6 +1007,49 @@ public interface SchemePackage extends EPackage
   EReference getConditional_Else();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.NestedOperation <em>Nested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nested Operation</em>'.
+   * @see org.xtext.example.mydsl.scheme.NestedOperation
+   * @generated
+   */
+  EClass getNestedOperation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.NestedOperation#getNestedOperation <em>Nested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nested Operation</em>'.
+   * @see org.xtext.example.mydsl.scheme.NestedOperation#getNestedOperation()
+   * @see #getNestedOperation()
+   * @generated
+   */
+  EAttribute getNestedOperation_NestedOperation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.NestedOperation#getCalculate <em>Calculate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Calculate</em>'.
+   * @see org.xtext.example.mydsl.scheme.NestedOperation#getCalculate()
+   * @see #getNestedOperation()
+   * @generated
+   */
+  EReference getNestedOperation_Calculate();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.NestedOperation#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Operation</em>'.
+   * @see org.xtext.example.mydsl.scheme.NestedOperation#getOperation()
+   * @see #getNestedOperation()
+   * @generated
+   */
+  EReference getNestedOperation_Operation();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Operation <em>Operation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1127,111 +1071,89 @@ public interface SchemePackage extends EPackage
   EAttribute getOperation_Operation();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Operation#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.Operation#getCalculate <em>Calculate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see org.xtext.example.mydsl.scheme.Operation#getOperator()
+   * @return the meta object for the containment reference list '<em>Calculate</em>'.
+   * @see org.xtext.example.mydsl.scheme.Operation#getCalculate()
    * @see #getOperation()
    * @generated
    */
-  EAttribute getOperation_Operator();
+  EReference getOperation_Calculate();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.Operation#getNumb <em>Numb</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Calculate <em>Calculate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Calculate</em>'.
+   * @see org.xtext.example.mydsl.scheme.Calculate
+   * @generated
+   */
+  EClass getCalculate();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Calculate#getCalculate <em>Calculate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Calculate</em>'.
+   * @see org.xtext.example.mydsl.scheme.Calculate#getCalculate()
+   * @see #getCalculate()
+   * @generated
+   */
+  EAttribute getCalculate_Calculate();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.Calculate#getNumb <em>Numb</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Numb</em>'.
-   * @see org.xtext.example.mydsl.scheme.Operation#getNumb()
-   * @see #getOperation()
+   * @see org.xtext.example.mydsl.scheme.Calculate#getNumb()
+   * @see #getCalculate()
    * @generated
    */
-  EAttribute getOperation_Numb();
+  EAttribute getCalculate_Numb();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.Operation#getNumb2 <em>Numb2</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.ListNumbers <em>List Numbers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Numb2</em>'.
-   * @see org.xtext.example.mydsl.scheme.Operation#getNumb2()
-   * @see #getOperation()
+   * @return the meta object for class '<em>List Numbers</em>'.
+   * @see org.xtext.example.mydsl.scheme.ListNumbers
    * @generated
    */
-  EAttribute getOperation_Numb2();
+  EClass getListNumbers();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.IDscheme <em>IDscheme</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.scheme.ListNumbers#getNumber <em>Number</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>IDscheme</em>'.
-   * @see org.xtext.example.mydsl.scheme.IDscheme
+   * @return the meta object for the attribute list '<em>Number</em>'.
+   * @see org.xtext.example.mydsl.scheme.ListNumbers#getNumber()
+   * @see #getListNumbers()
    * @generated
    */
-  EClass getIDscheme();
+  EAttribute getListNumbers_Number();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.IDscheme#getInit <em>Init</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.ListLength <em>List Length</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Init</em>'.
-   * @see org.xtext.example.mydsl.scheme.IDscheme#getInit()
-   * @see #getIDscheme()
+   * @return the meta object for class '<em>List Length</em>'.
+   * @see org.xtext.example.mydsl.scheme.ListLength
    * @generated
    */
-  EReference getIDscheme_Init();
+  EClass getListLength();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.IDscheme#getSubs <em>Subs</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.scheme.ListLength#getListNumbers <em>List Numbers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Subs</em>'.
-   * @see org.xtext.example.mydsl.scheme.IDscheme#getSubs()
-   * @see #getIDscheme()
+   * @return the meta object for the containment reference list '<em>List Numbers</em>'.
+   * @see org.xtext.example.mydsl.scheme.ListLength#getListNumbers()
+   * @see #getListLength()
    * @generated
    */
-  EReference getIDscheme_Subs();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Initial <em>Initial</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Initial</em>'.
-   * @see org.xtext.example.mydsl.scheme.Initial
-   * @generated
-   */
-  EClass getInitial();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.scheme.Initial#getInit <em>Init</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Init</em>'.
-   * @see org.xtext.example.mydsl.scheme.Initial#getInit()
-   * @see #getInitial()
-   * @generated
-   */
-  EAttribute getInitial_Init();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.scheme.Subsequent <em>Subsequent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Subsequent</em>'.
-   * @see org.xtext.example.mydsl.scheme.Subsequent
-   * @generated
-   */
-  EClass getSubsequent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.scheme.Subsequent#getInit <em>Init</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Init</em>'.
-   * @see org.xtext.example.mydsl.scheme.Subsequent#getInit()
-   * @see #getSubsequent()
-   * @generated
-   */
-  EReference getSubsequent_Init();
+  EReference getListLength_ListNumbers();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1275,32 +1197,6 @@ public interface SchemePackage extends EPackage
     EReference PROGRAM__PROGRAM = eINSTANCE.getProgram_Program();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.FormImpl <em>Form</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.FormImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getForm()
-     * @generated
-     */
-    EClass FORM = eINSTANCE.getForm();
-
-    /**
-     * The meta object literal for the '<em><b>Definition</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FORM__DEFINITION = eINSTANCE.getForm_Definition();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FORM__EXPRESSION = eINSTANCE.getForm_Expression();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.DefinitionImpl <em>Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1311,30 +1207,12 @@ public interface SchemePackage extends EPackage
     EClass DEFINITION = eINSTANCE.getDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Variable Definition</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Cons</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEFINITION__VARIABLE_DEFINITION = eINSTANCE.getDefinition_VariableDefinition();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.VariableDefinitionImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getVariableDefinition()
-     * @generated
-     */
-    EClass VARIABLE_DEFINITION = eINSTANCE.getVariableDefinition();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_DEFINITION__VARIABLE = eINSTANCE.getVariableDefinition_Variable();
+    EAttribute DEFINITION__CONS = eINSTANCE.getDefinition_Cons();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -1342,7 +1220,15 @@ public interface SchemePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE_DEFINITION__EXPRESSION = eINSTANCE.getVariableDefinition_Expression();
+    EReference DEFINITION__EXPRESSION = eINSTANCE.getDefinition_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION__VARIABLE = eINSTANCE.getDefinition_Variable();
 
     /**
      * The meta object literal for the '<em><b>Variables</b></em>' attribute list feature.
@@ -1350,7 +1236,7 @@ public interface SchemePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE_DEFINITION__VARIABLES = eINSTANCE.getVariableDefinition_Variables();
+    EAttribute DEFINITION__VARIABLES = eINSTANCE.getDefinition_Variables();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -1358,15 +1244,7 @@ public interface SchemePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE_DEFINITION__BODY = eINSTANCE.getVariableDefinition_Body();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_DEFINITION__VAR = eINSTANCE.getVariableDefinition_Var();
+    EReference DEFINITION__BODY = eINSTANCE.getDefinition_Body();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.BodyImpl <em>Body</em>}' class.
@@ -1421,6 +1299,14 @@ public interface SchemePackage extends EPackage
     EReference EXPRESSION__OPER = eINSTANCE.getExpression_Oper();
 
     /**
+     * The meta object literal for the '<em><b>Comp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__COMP = eINSTANCE.getExpression_Comp();
+
+    /**
      * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1437,20 +1323,44 @@ public interface SchemePackage extends EPackage
     EReference EXPRESSION__SET = eINSTANCE.getExpression_Set();
 
     /**
-     * The meta object literal for the '<em><b>App</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Trig</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__APP = eINSTANCE.getExpression_App();
+    EReference EXPRESSION__TRIG = eINSTANCE.getExpression_Trig();
 
     /**
-     * The meta object literal for the '<em><b>Mult</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__MULT = eINSTANCE.getExpression_Mult();
+    EReference EXPRESSION__LIST = eINSTANCE.getExpression_List();
+
+    /**
+     * The meta object literal for the '<em><b>List Length</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__LIST_LENGTH = eINSTANCE.getExpression_ListLength();
+
+    /**
+     * The meta object literal for the '<em><b>Nested Operation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__NESTED_OPERATION = eINSTANCE.getExpression_NestedOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Calculate</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__CALCULATE = eINSTANCE.getExpression_Calculate();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -1479,64 +1389,30 @@ public interface SchemePackage extends EPackage
     EAttribute COMPARISON__NUM2 = eINSTANCE.getComparison_Num2();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.MultipleConditionImpl <em>Multiple Condition</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.TrigonometryImpl <em>Trigonometry</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.MultipleConditionImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getMultipleCondition()
+     * @see org.xtext.example.mydsl.scheme.impl.TrigonometryImpl
+     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getTrigonometry()
      * @generated
      */
-    EClass MULTIPLE_CONDITION = eINSTANCE.getMultipleCondition();
+    EClass TRIGONOMETRY = eINSTANCE.getTrigonometry();
 
     /**
-     * The meta object literal for the '<em><b>Comp</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Trig</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MULTIPLE_CONDITION__COMP = eINSTANCE.getMultipleCondition_Comp();
+    EAttribute TRIGONOMETRY__TRIG = eINSTANCE.getTrigonometry_Trig();
 
     /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Numb</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MULTIPLE_CONDITION__EXP = eINSTANCE.getMultipleCondition_Exp();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MULTIPLE_CONDITION__EXPRESSION = eINSTANCE.getMultipleCondition_Expression();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.ApplicationImpl <em>Application</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.ApplicationImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getApplication()
-     * @generated
-     */
-    EClass APPLICATION = eINSTANCE.getApplication();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference APPLICATION__EXPRESSION = eINSTANCE.getApplication_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference APPLICATION__EXPRESSIONS = eINSTANCE.getApplication_Expressions();
+    EAttribute TRIGONOMETRY__NUMB = eINSTANCE.getTrigonometry_Numb();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.SetImpl <em>Set</em>}' class.
@@ -1599,6 +1475,40 @@ public interface SchemePackage extends EPackage
     EReference CONDITIONAL__ELSE = eINSTANCE.getConditional_Else();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.NestedOperationImpl <em>Nested Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.scheme.impl.NestedOperationImpl
+     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getNestedOperation()
+     * @generated
+     */
+    EClass NESTED_OPERATION = eINSTANCE.getNestedOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Nested Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NESTED_OPERATION__NESTED_OPERATION = eINSTANCE.getNestedOperation_NestedOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Calculate</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NESTED_OPERATION__CALCULATE = eINSTANCE.getNestedOperation_Calculate();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NESTED_OPERATION__OPERATION = eINSTANCE.getNestedOperation_Operation();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.OperationImpl <em>Operation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1617,12 +1527,30 @@ public interface SchemePackage extends EPackage
     EAttribute OPERATION__OPERATION = eINSTANCE.getOperation_Operation();
 
     /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Calculate</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__OPERATOR = eINSTANCE.getOperation_Operator();
+    EReference OPERATION__CALCULATE = eINSTANCE.getOperation_Calculate();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.CalculateImpl <em>Calculate</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.scheme.impl.CalculateImpl
+     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getCalculate()
+     * @generated
+     */
+    EClass CALCULATE = eINSTANCE.getCalculate();
+
+    /**
+     * The meta object literal for the '<em><b>Calculate</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALCULATE__CALCULATE = eINSTANCE.getCalculate_Calculate();
 
     /**
      * The meta object literal for the '<em><b>Numb</b></em>' attribute list feature.
@@ -1630,77 +1558,43 @@ public interface SchemePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__NUMB = eINSTANCE.getOperation_Numb();
+    EAttribute CALCULATE__NUMB = eINSTANCE.getCalculate_Numb();
 
     /**
-     * The meta object literal for the '<em><b>Numb2</b></em>' attribute list feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.ListNumbersImpl <em>List Numbers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.scheme.impl.ListNumbersImpl
+     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getListNumbers()
+     * @generated
+     */
+    EClass LIST_NUMBERS = eINSTANCE.getListNumbers();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__NUMB2 = eINSTANCE.getOperation_Numb2();
+    EAttribute LIST_NUMBERS__NUMBER = eINSTANCE.getListNumbers_Number();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.IDschemeImpl <em>IDscheme</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.ListLengthImpl <em>List Length</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.IDschemeImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getIDscheme()
+     * @see org.xtext.example.mydsl.scheme.impl.ListLengthImpl
+     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getListLength()
      * @generated
      */
-    EClass IDSCHEME = eINSTANCE.getIDscheme();
+    EClass LIST_LENGTH = eINSTANCE.getListLength();
 
     /**
-     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDSCHEME__INIT = eINSTANCE.getIDscheme_Init();
-
-    /**
-     * The meta object literal for the '<em><b>Subs</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>List Numbers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IDSCHEME__SUBS = eINSTANCE.getIDscheme_Subs();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.InitialImpl <em>Initial</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.InitialImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getInitial()
-     * @generated
-     */
-    EClass INITIAL = eINSTANCE.getInitial();
-
-    /**
-     * The meta object literal for the '<em><b>Init</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INITIAL__INIT = eINSTANCE.getInitial_Init();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.scheme.impl.SubsequentImpl <em>Subsequent</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.scheme.impl.SubsequentImpl
-     * @see org.xtext.example.mydsl.scheme.impl.SchemePackageImpl#getSubsequent()
-     * @generated
-     */
-    EClass SUBSEQUENT = eINSTANCE.getSubsequent();
-
-    /**
-     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SUBSEQUENT__INIT = eINSTANCE.getSubsequent_Init();
+    EReference LIST_LENGTH__LIST_NUMBERS = eINSTANCE.getListLength_ListNumbers();
 
   }
 

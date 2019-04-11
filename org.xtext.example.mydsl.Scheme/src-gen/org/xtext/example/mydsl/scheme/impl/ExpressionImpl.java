@@ -12,13 +12,17 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.scheme.Application;
+import org.xtext.example.mydsl.scheme.Calculate;
+import org.xtext.example.mydsl.scheme.Comparison;
 import org.xtext.example.mydsl.scheme.Conditional;
 import org.xtext.example.mydsl.scheme.Expression;
-import org.xtext.example.mydsl.scheme.MultipleCondition;
+import org.xtext.example.mydsl.scheme.ListLength;
+import org.xtext.example.mydsl.scheme.ListNumbers;
+import org.xtext.example.mydsl.scheme.NestedOperation;
 import org.xtext.example.mydsl.scheme.Operation;
 import org.xtext.example.mydsl.scheme.SchemePackage;
 import org.xtext.example.mydsl.scheme.Set;
+import org.xtext.example.mydsl.scheme.Trigonometry;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,10 +34,14 @@ import org.xtext.example.mydsl.scheme.Set;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getConstant <em>Constant</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getOper <em>Oper</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getComp <em>Comp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getCond <em>Cond</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getSet <em>Set</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getApp <em>App</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getMult <em>Mult</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getTrig <em>Trig</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getListLength <em>List Length</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getNestedOperation <em>Nested Operation</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.ExpressionImpl#getCalculate <em>Calculate</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +79,16 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected Operation oper;
 
   /**
+   * The cached value of the '{@link #getComp() <em>Comp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComp()
+   * @generated
+   * @ordered
+   */
+  protected Comparison comp;
+
+  /**
    * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -91,24 +109,54 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected Set set;
 
   /**
-   * The cached value of the '{@link #getApp() <em>App</em>}' containment reference.
+   * The cached value of the '{@link #getTrig() <em>Trig</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getApp()
+   * @see #getTrig()
    * @generated
    * @ordered
    */
-  protected Application app;
+  protected Trigonometry trig;
 
   /**
-   * The cached value of the '{@link #getMult() <em>Mult</em>}' containment reference.
+   * The cached value of the '{@link #getList() <em>List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMult()
+   * @see #getList()
    * @generated
    * @ordered
    */
-  protected MultipleCondition mult;
+  protected ListNumbers list;
+
+  /**
+   * The cached value of the '{@link #getListLength() <em>List Length</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getListLength()
+   * @generated
+   * @ordered
+   */
+  protected ListLength listLength;
+
+  /**
+   * The cached value of the '{@link #getNestedOperation() <em>Nested Operation</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNestedOperation()
+   * @generated
+   * @ordered
+   */
+  protected NestedOperation nestedOperation;
+
+  /**
+   * The cached value of the '{@link #getCalculate() <em>Calculate</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCalculate()
+   * @generated
+   * @ordered
+   */
+  protected Calculate calculate;
 
   /**
    * <!-- begin-user-doc -->
@@ -204,6 +252,56 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__OPER, newOper, newOper));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Comparison getComp()
+  {
+    return comp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetComp(Comparison newComp, NotificationChain msgs)
+  {
+    Comparison oldComp = comp;
+    comp = newComp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__COMP, oldComp, newComp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setComp(Comparison newComp)
+  {
+    if (newComp != comp)
+    {
+      NotificationChain msgs = null;
+      if (comp != null)
+        msgs = ((InternalEObject)comp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__COMP, null, msgs);
+      if (newComp != null)
+        msgs = ((InternalEObject)newComp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__COMP, null, msgs);
+      msgs = basicSetComp(newComp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__COMP, newComp, newComp));
   }
 
   /**
@@ -312,9 +410,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
-  public Application getApp()
+  public Trigonometry getTrig()
   {
-    return app;
+    return trig;
   }
 
   /**
@@ -322,13 +420,13 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetApp(Application newApp, NotificationChain msgs)
+  public NotificationChain basicSetTrig(Trigonometry newTrig, NotificationChain msgs)
   {
-    Application oldApp = app;
-    app = newApp;
+    Trigonometry oldTrig = trig;
+    trig = newTrig;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__APP, oldApp, newApp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__TRIG, oldTrig, newTrig);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -340,20 +438,20 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
-  public void setApp(Application newApp)
+  public void setTrig(Trigonometry newTrig)
   {
-    if (newApp != app)
+    if (newTrig != trig)
     {
       NotificationChain msgs = null;
-      if (app != null)
-        msgs = ((InternalEObject)app).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__APP, null, msgs);
-      if (newApp != null)
-        msgs = ((InternalEObject)newApp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__APP, null, msgs);
-      msgs = basicSetApp(newApp, msgs);
+      if (trig != null)
+        msgs = ((InternalEObject)trig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__TRIG, null, msgs);
+      if (newTrig != null)
+        msgs = ((InternalEObject)newTrig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__TRIG, null, msgs);
+      msgs = basicSetTrig(newTrig, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__APP, newApp, newApp));
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__TRIG, newTrig, newTrig));
   }
 
   /**
@@ -362,9 +460,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
-  public MultipleCondition getMult()
+  public ListNumbers getList()
   {
-    return mult;
+    return list;
   }
 
   /**
@@ -372,13 +470,13 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMult(MultipleCondition newMult, NotificationChain msgs)
+  public NotificationChain basicSetList(ListNumbers newList, NotificationChain msgs)
   {
-    MultipleCondition oldMult = mult;
-    mult = newMult;
+    ListNumbers oldList = list;
+    list = newList;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__MULT, oldMult, newMult);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__LIST, oldList, newList);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -390,20 +488,170 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
-  public void setMult(MultipleCondition newMult)
+  public void setList(ListNumbers newList)
   {
-    if (newMult != mult)
+    if (newList != list)
     {
       NotificationChain msgs = null;
-      if (mult != null)
-        msgs = ((InternalEObject)mult).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__MULT, null, msgs);
-      if (newMult != null)
-        msgs = ((InternalEObject)newMult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__MULT, null, msgs);
-      msgs = basicSetMult(newMult, msgs);
+      if (list != null)
+        msgs = ((InternalEObject)list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__LIST, null, msgs);
+      if (newList != null)
+        msgs = ((InternalEObject)newList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__LIST, null, msgs);
+      msgs = basicSetList(newList, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__MULT, newMult, newMult));
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__LIST, newList, newList));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ListLength getListLength()
+  {
+    return listLength;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetListLength(ListLength newListLength, NotificationChain msgs)
+  {
+    ListLength oldListLength = listLength;
+    listLength = newListLength;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__LIST_LENGTH, oldListLength, newListLength);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setListLength(ListLength newListLength)
+  {
+    if (newListLength != listLength)
+    {
+      NotificationChain msgs = null;
+      if (listLength != null)
+        msgs = ((InternalEObject)listLength).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__LIST_LENGTH, null, msgs);
+      if (newListLength != null)
+        msgs = ((InternalEObject)newListLength).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__LIST_LENGTH, null, msgs);
+      msgs = basicSetListLength(newListLength, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__LIST_LENGTH, newListLength, newListLength));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NestedOperation getNestedOperation()
+  {
+    return nestedOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNestedOperation(NestedOperation newNestedOperation, NotificationChain msgs)
+  {
+    NestedOperation oldNestedOperation = nestedOperation;
+    nestedOperation = newNestedOperation;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__NESTED_OPERATION, oldNestedOperation, newNestedOperation);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNestedOperation(NestedOperation newNestedOperation)
+  {
+    if (newNestedOperation != nestedOperation)
+    {
+      NotificationChain msgs = null;
+      if (nestedOperation != null)
+        msgs = ((InternalEObject)nestedOperation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__NESTED_OPERATION, null, msgs);
+      if (newNestedOperation != null)
+        msgs = ((InternalEObject)newNestedOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__NESTED_OPERATION, null, msgs);
+      msgs = basicSetNestedOperation(newNestedOperation, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__NESTED_OPERATION, newNestedOperation, newNestedOperation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Calculate getCalculate()
+  {
+    return calculate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCalculate(Calculate newCalculate, NotificationChain msgs)
+  {
+    Calculate oldCalculate = calculate;
+    calculate = newCalculate;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__CALCULATE, oldCalculate, newCalculate);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCalculate(Calculate newCalculate)
+  {
+    if (newCalculate != calculate)
+    {
+      NotificationChain msgs = null;
+      if (calculate != null)
+        msgs = ((InternalEObject)calculate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__CALCULATE, null, msgs);
+      if (newCalculate != null)
+        msgs = ((InternalEObject)newCalculate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.EXPRESSION__CALCULATE, null, msgs);
+      msgs = basicSetCalculate(newCalculate, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.EXPRESSION__CALCULATE, newCalculate, newCalculate));
   }
 
   /**
@@ -418,14 +666,22 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case SchemePackage.EXPRESSION__OPER:
         return basicSetOper(null, msgs);
+      case SchemePackage.EXPRESSION__COMP:
+        return basicSetComp(null, msgs);
       case SchemePackage.EXPRESSION__COND:
         return basicSetCond(null, msgs);
       case SchemePackage.EXPRESSION__SET:
         return basicSetSet(null, msgs);
-      case SchemePackage.EXPRESSION__APP:
-        return basicSetApp(null, msgs);
-      case SchemePackage.EXPRESSION__MULT:
-        return basicSetMult(null, msgs);
+      case SchemePackage.EXPRESSION__TRIG:
+        return basicSetTrig(null, msgs);
+      case SchemePackage.EXPRESSION__LIST:
+        return basicSetList(null, msgs);
+      case SchemePackage.EXPRESSION__LIST_LENGTH:
+        return basicSetListLength(null, msgs);
+      case SchemePackage.EXPRESSION__NESTED_OPERATION:
+        return basicSetNestedOperation(null, msgs);
+      case SchemePackage.EXPRESSION__CALCULATE:
+        return basicSetCalculate(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -444,14 +700,22 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getConstant();
       case SchemePackage.EXPRESSION__OPER:
         return getOper();
+      case SchemePackage.EXPRESSION__COMP:
+        return getComp();
       case SchemePackage.EXPRESSION__COND:
         return getCond();
       case SchemePackage.EXPRESSION__SET:
         return getSet();
-      case SchemePackage.EXPRESSION__APP:
-        return getApp();
-      case SchemePackage.EXPRESSION__MULT:
-        return getMult();
+      case SchemePackage.EXPRESSION__TRIG:
+        return getTrig();
+      case SchemePackage.EXPRESSION__LIST:
+        return getList();
+      case SchemePackage.EXPRESSION__LIST_LENGTH:
+        return getListLength();
+      case SchemePackage.EXPRESSION__NESTED_OPERATION:
+        return getNestedOperation();
+      case SchemePackage.EXPRESSION__CALCULATE:
+        return getCalculate();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -472,17 +736,29 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case SchemePackage.EXPRESSION__OPER:
         setOper((Operation)newValue);
         return;
+      case SchemePackage.EXPRESSION__COMP:
+        setComp((Comparison)newValue);
+        return;
       case SchemePackage.EXPRESSION__COND:
         setCond((Conditional)newValue);
         return;
       case SchemePackage.EXPRESSION__SET:
         setSet((Set)newValue);
         return;
-      case SchemePackage.EXPRESSION__APP:
-        setApp((Application)newValue);
+      case SchemePackage.EXPRESSION__TRIG:
+        setTrig((Trigonometry)newValue);
         return;
-      case SchemePackage.EXPRESSION__MULT:
-        setMult((MultipleCondition)newValue);
+      case SchemePackage.EXPRESSION__LIST:
+        setList((ListNumbers)newValue);
+        return;
+      case SchemePackage.EXPRESSION__LIST_LENGTH:
+        setListLength((ListLength)newValue);
+        return;
+      case SchemePackage.EXPRESSION__NESTED_OPERATION:
+        setNestedOperation((NestedOperation)newValue);
+        return;
+      case SchemePackage.EXPRESSION__CALCULATE:
+        setCalculate((Calculate)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -504,17 +780,29 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case SchemePackage.EXPRESSION__OPER:
         setOper((Operation)null);
         return;
+      case SchemePackage.EXPRESSION__COMP:
+        setComp((Comparison)null);
+        return;
       case SchemePackage.EXPRESSION__COND:
         setCond((Conditional)null);
         return;
       case SchemePackage.EXPRESSION__SET:
         setSet((Set)null);
         return;
-      case SchemePackage.EXPRESSION__APP:
-        setApp((Application)null);
+      case SchemePackage.EXPRESSION__TRIG:
+        setTrig((Trigonometry)null);
         return;
-      case SchemePackage.EXPRESSION__MULT:
-        setMult((MultipleCondition)null);
+      case SchemePackage.EXPRESSION__LIST:
+        setList((ListNumbers)null);
+        return;
+      case SchemePackage.EXPRESSION__LIST_LENGTH:
+        setListLength((ListLength)null);
+        return;
+      case SchemePackage.EXPRESSION__NESTED_OPERATION:
+        setNestedOperation((NestedOperation)null);
+        return;
+      case SchemePackage.EXPRESSION__CALCULATE:
+        setCalculate((Calculate)null);
         return;
     }
     super.eUnset(featureID);
@@ -534,14 +822,22 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return CONSTANT_EDEFAULT == null ? constant != null : !CONSTANT_EDEFAULT.equals(constant);
       case SchemePackage.EXPRESSION__OPER:
         return oper != null;
+      case SchemePackage.EXPRESSION__COMP:
+        return comp != null;
       case SchemePackage.EXPRESSION__COND:
         return cond != null;
       case SchemePackage.EXPRESSION__SET:
         return set != null;
-      case SchemePackage.EXPRESSION__APP:
-        return app != null;
-      case SchemePackage.EXPRESSION__MULT:
-        return mult != null;
+      case SchemePackage.EXPRESSION__TRIG:
+        return trig != null;
+      case SchemePackage.EXPRESSION__LIST:
+        return list != null;
+      case SchemePackage.EXPRESSION__LIST_LENGTH:
+        return listLength != null;
+      case SchemePackage.EXPRESSION__NESTED_OPERATION:
+        return nestedOperation != null;
+      case SchemePackage.EXPRESSION__CALCULATE:
+        return calculate != null;
     }
     return super.eIsSet(featureID);
   }

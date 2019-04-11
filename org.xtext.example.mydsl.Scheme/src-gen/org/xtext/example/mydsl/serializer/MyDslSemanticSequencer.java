@@ -14,21 +14,19 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.example.mydsl.scheme.Application;
 import org.xtext.example.mydsl.scheme.Body;
+import org.xtext.example.mydsl.scheme.Calculate;
 import org.xtext.example.mydsl.scheme.Comparison;
 import org.xtext.example.mydsl.scheme.Conditional;
 import org.xtext.example.mydsl.scheme.Definition;
 import org.xtext.example.mydsl.scheme.Expression;
-import org.xtext.example.mydsl.scheme.Form;
-import org.xtext.example.mydsl.scheme.IDscheme;
-import org.xtext.example.mydsl.scheme.Initial;
-import org.xtext.example.mydsl.scheme.MultipleCondition;
+import org.xtext.example.mydsl.scheme.ListLength;
+import org.xtext.example.mydsl.scheme.ListNumbers;
+import org.xtext.example.mydsl.scheme.NestedOperation;
 import org.xtext.example.mydsl.scheme.Operation;
 import org.xtext.example.mydsl.scheme.Program;
 import org.xtext.example.mydsl.scheme.SchemePackage;
-import org.xtext.example.mydsl.scheme.Subsequent;
-import org.xtext.example.mydsl.scheme.VariableDefinition;
+import org.xtext.example.mydsl.scheme.Trigonometry;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -45,11 +43,11 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SchemePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SchemePackage.APPLICATION:
-				sequence_Application(context, (Application) semanticObject); 
-				return; 
 			case SchemePackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
+				return; 
+			case SchemePackage.CALCULATE:
+				sequence_Calculate(context, (Calculate) semanticObject); 
 				return; 
 			case SchemePackage.COMPARISON:
 				sequence_Comparison(context, (Comparison) semanticObject); 
@@ -63,17 +61,14 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case SchemePackage.EXPRESSION:
 				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
-			case SchemePackage.FORM:
-				sequence_Form(context, (Form) semanticObject); 
+			case SchemePackage.LIST_LENGTH:
+				sequence_ListLength(context, (ListLength) semanticObject); 
 				return; 
-			case SchemePackage.IDSCHEME:
-				sequence_IDscheme(context, (IDscheme) semanticObject); 
+			case SchemePackage.LIST_NUMBERS:
+				sequence_ListNumbers(context, (ListNumbers) semanticObject); 
 				return; 
-			case SchemePackage.INITIAL:
-				sequence_Initial(context, (Initial) semanticObject); 
-				return; 
-			case SchemePackage.MULTIPLE_CONDITION:
-				sequence_MultipleCondition(context, (MultipleCondition) semanticObject); 
+			case SchemePackage.NESTED_OPERATION:
+				sequence_NestedOperation(context, (NestedOperation) semanticObject); 
 				return; 
 			case SchemePackage.OPERATION:
 				sequence_Operation(context, (Operation) semanticObject); 
@@ -84,28 +79,13 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case SchemePackage.SET:
 				sequence_Set(context, (org.xtext.example.mydsl.scheme.Set) semanticObject); 
 				return; 
-			case SchemePackage.SUBSEQUENT:
-				sequence_Subsequent(context, (Subsequent) semanticObject); 
-				return; 
-			case SchemePackage.VARIABLE_DEFINITION:
-				sequence_VariableDefinition(context, (VariableDefinition) semanticObject); 
+			case SchemePackage.TRIGONOMETRY:
+				sequence_Trigonometry(context, (Trigonometry) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Application returns Application
-	 *
-	 * Constraint:
-	 *     (expression=Expression expressions+=Expression*)
-	 */
-	protected void sequence_Application(ISerializationContext context, Application semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -121,10 +101,22 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Calculate returns Calculate
+	 *
+	 * Constraint:
+	 *     (calculate=OPER numb+=Number*)
+	 */
+	protected void sequence_Calculate(ISerializationContext context, Calculate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Comparison returns Comparison
 	 *
 	 * Constraint:
-	 *     (num1=NUMBER num2=NUMBER)?
+	 *     (num1=Number num2=Number)?
 	 */
 	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -148,16 +140,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Definition returns Definition
 	 *
 	 * Constraint:
-	 *     variableDefinition=VariableDefinition
+	 *     ((cons=Constant expression=Expression) | (variable=ID variables+=ID* body=Body))
 	 */
 	protected void sequence_Definition(ISerializationContext context, Definition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.DEFINITION__VARIABLE_DEFINITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.DEFINITION__VARIABLE_DEFINITION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDefinitionAccess().getVariableDefinitionVariableDefinitionParserRuleCall_0(), semanticObject.getVariableDefinition());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -169,10 +155,14 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         constant=Constant | 
 	 *         oper=Operation | 
+	 *         comp=Comparison | 
 	 *         cond=Conditional | 
 	 *         set=Set | 
-	 *         app=Application | 
-	 *         mult=MultipleCondition
+	 *         trig=Trigonometry | 
+	 *         list=ListNumbers | 
+	 *         listLength=ListLength | 
+	 *         nestedOperation=NestedOperation | 
+	 *         calculate=Calculate
 	 *     )
 	 */
 	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
@@ -182,64 +172,36 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Form returns Form
+	 *     ListLength returns ListLength
 	 *
 	 * Constraint:
-	 *     (definition+=Definition | expression+=Expression)
+	 *     listNumbers+=ListNumbers
 	 */
-	protected void sequence_Form(ISerializationContext context, Form semanticObject) {
+	protected void sequence_ListLength(ISerializationContext context, ListLength semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     IDscheme returns IDscheme
+	 *     ListNumbers returns ListNumbers
 	 *
 	 * Constraint:
-	 *     (init=Initial subs+=Subsequent*)
+	 *     number+=Number*
 	 */
-	protected void sequence_IDscheme(ISerializationContext context, IDscheme semanticObject) {
+	protected void sequence_ListNumbers(ISerializationContext context, ListNumbers semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Initial returns Initial
+	 *     NestedOperation returns NestedOperation
 	 *
 	 * Constraint:
-	 *     (
-	 *         init=LETTER | 
-	 *         init='!' | 
-	 *         init='$' | 
-	 *         init='%' | 
-	 *         init='&' | 
-	 *         init='*' | 
-	 *         init='/' | 
-	 *         init=':' | 
-	 *         init='<' | 
-	 *         init='=' | 
-	 *         init='>' | 
-	 *         init='?' | 
-	 *         init='~' | 
-	 *         init='_' | 
-	 *         init='^'
-	 *     )
+	 *     (nestedOperation='(' calculate+=Calculate operation+=Operation)
 	 */
-	protected void sequence_Initial(ISerializationContext context, Initial semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     MultipleCondition returns MultipleCondition
-	 *
-	 * Constraint:
-	 *     (comp+=Comparison exp+=Expression expression=Expression?)
-	 */
-	protected void sequence_MultipleCondition(ISerializationContext context, MultipleCondition semanticObject) {
+	protected void sequence_NestedOperation(ISerializationContext context, NestedOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -249,7 +211,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (operation='(' operator=OPER numb+=NUMBER* numb2+=NUMBER*)
+	 *     (operation='(' calculate+=Calculate)
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -261,7 +223,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     program+=Form+
+	 *     (program+=Expression | program+=Definition)+
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -291,24 +253,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Subsequent returns Subsequent
+	 *     Trigonometry returns Trigonometry
 	 *
 	 * Constraint:
-	 *     init=Initial?
+	 *     (trig='(' numb+=Number)
 	 */
-	protected void sequence_Subsequent(ISerializationContext context, Subsequent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     VariableDefinition returns VariableDefinition
-	 *
-	 * Constraint:
-	 *     ((variable=ID expression=Expression) | (variable=ID variables+=ID* body=Body) | (variable=ID variables+=ID* var=ID body=Body))
-	 */
-	protected void sequence_VariableDefinition(ISerializationContext context, VariableDefinition semanticObject) {
+	protected void sequence_Trigonometry(ISerializationContext context, Trigonometry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

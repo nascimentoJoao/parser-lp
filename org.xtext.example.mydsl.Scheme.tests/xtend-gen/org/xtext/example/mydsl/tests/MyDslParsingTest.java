@@ -12,7 +12,6 @@ import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,10 +26,10 @@ public class MyDslParsingTest {
   private ParseHelper<Program> parseHelper;
   
   @Test
-  public void loadModelPrint() {
+  public void testPrint() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("\"(a)\"");
+      _builder.append("\"0\"");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -47,15 +46,75 @@ public class MyDslParsingTest {
   }
   
   @Test
-  public void loadModelIf() {
+  public void testSum() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(if #t               ");
+      _builder.append("(+ 1 1.5 6)");
       _builder.newLine();
-      _builder.append("    ");
-      _builder.append("\"this is true\"   ");
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testDefine() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(define x -5)");
       _builder.newLine();
-      _builder.append("    ");
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testComparison() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(>= 3 3)");
+      _builder.newLine();
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIf() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(if (>= 3 3)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("\"this is true\"");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.append("\"this is false\")");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
@@ -73,10 +132,13 @@ public class MyDslParsingTest {
   }
   
   @Test
-  public void loadModelSum() {
+  public void testSet() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(+ 1 1)");
+      _builder.append("(define x \"5\")");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("(set! x \"0\")");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -93,10 +155,10 @@ public class MyDslParsingTest {
   }
   
   @Test
-  public void loadModelDef() {
+  public void testAbs() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(define x 5)");
+      _builder.append("(abs 10)");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -113,70 +175,120 @@ public class MyDslParsingTest {
   }
   
   @Test
-  public void loadModelLoop() {
+  public void testCos() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(define (loop i)");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("(when (< i 10)");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(printf \"i=~a\\n\" i)");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(loop (add1 i))))");
-      _builder.newLine();
-      _builder.append("(loop 5)");
+      _builder.append("(cos 0.5)");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Unexpected errors: ");
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void loadModelComp() {
+  public void testSquare() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(= 3 3.0)");
+      _builder.append("(square 0.5)");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Unexpected errors: ");
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void loadModelSet() {
+  public void testList() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(define x \"5\")\t\t\t");
-      _builder.newLine();
-      _builder.append("(set! x \"0\")\t\t\t");
+      _builder.append("(list 0.5 4 5 1 9)");
       _builder.newLine();
       final Program result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Unexpected errors: ");
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testListLength() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(length (list 0.5 4 5 1 9))");
+      _builder.newLine();
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testNestedOperation() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(+ 3 (+ 4 3))");
+      _builder.newLine();
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testStringAppend() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(string-append \"Hello \" \"world!\")");
+      _builder.newLine();
+      final Program result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

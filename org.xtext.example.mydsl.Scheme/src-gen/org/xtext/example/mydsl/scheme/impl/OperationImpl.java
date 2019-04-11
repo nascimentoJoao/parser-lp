@@ -6,16 +6,20 @@ package org.xtext.example.mydsl.scheme.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.scheme.Calculate;
 import org.xtext.example.mydsl.scheme.Operation;
 import org.xtext.example.mydsl.scheme.SchemePackage;
 
@@ -28,9 +32,7 @@ import org.xtext.example.mydsl.scheme.SchemePackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.scheme.impl.OperationImpl#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.impl.OperationImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.impl.OperationImpl#getNumb <em>Numb</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.impl.OperationImpl#getNumb2 <em>Numb2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.impl.OperationImpl#getCalculate <em>Calculate</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,44 +60,14 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   protected String operation = OPERATION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * The cached value of the '{@link #getCalculate() <em>Calculate</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperator()
+   * @see #getCalculate()
    * @generated
    * @ordered
    */
-  protected static final String OPERATOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperator()
-   * @generated
-   * @ordered
-   */
-  protected String operator = OPERATOR_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getNumb() <em>Numb</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNumb()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> numb;
-
-  /**
-   * The cached value of the '{@link #getNumb2() <em>Numb2</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNumb2()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> numb2;
+  protected EList<Calculate> calculate;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,38 +121,13 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    */
   @Override
-  public String getOperator()
+  public EList<Calculate> getCalculate()
   {
-    return operator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOperator(String newOperator)
-  {
-    String oldOperator = operator;
-    operator = newOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.OPERATION__OPERATOR, oldOperator, operator));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<String> getNumb()
-  {
-    if (numb == null)
+    if (calculate == null)
     {
-      numb = new EDataTypeEList<String>(String.class, this, SchemePackage.OPERATION__NUMB);
+      calculate = new EObjectContainmentEList<Calculate>(Calculate.class, this, SchemePackage.OPERATION__CALCULATE);
     }
-    return numb;
+    return calculate;
   }
 
   /**
@@ -189,13 +136,14 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    */
   @Override
-  public EList<String> getNumb2()
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    if (numb2 == null)
+    switch (featureID)
     {
-      numb2 = new EDataTypeEList<String>(String.class, this, SchemePackage.OPERATION__NUMB2);
+      case SchemePackage.OPERATION__CALCULATE:
+        return ((InternalEList<?>)getCalculate()).basicRemove(otherEnd, msgs);
     }
-    return numb2;
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -210,12 +158,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case SchemePackage.OPERATION__OPERATION:
         return getOperation();
-      case SchemePackage.OPERATION__OPERATOR:
-        return getOperator();
-      case SchemePackage.OPERATION__NUMB:
-        return getNumb();
-      case SchemePackage.OPERATION__NUMB2:
-        return getNumb2();
+      case SchemePackage.OPERATION__CALCULATE:
+        return getCalculate();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -234,16 +178,9 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
       case SchemePackage.OPERATION__OPERATION:
         setOperation((String)newValue);
         return;
-      case SchemePackage.OPERATION__OPERATOR:
-        setOperator((String)newValue);
-        return;
-      case SchemePackage.OPERATION__NUMB:
-        getNumb().clear();
-        getNumb().addAll((Collection<? extends String>)newValue);
-        return;
-      case SchemePackage.OPERATION__NUMB2:
-        getNumb2().clear();
-        getNumb2().addAll((Collection<? extends String>)newValue);
+      case SchemePackage.OPERATION__CALCULATE:
+        getCalculate().clear();
+        getCalculate().addAll((Collection<? extends Calculate>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -262,14 +199,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
       case SchemePackage.OPERATION__OPERATION:
         setOperation(OPERATION_EDEFAULT);
         return;
-      case SchemePackage.OPERATION__OPERATOR:
-        setOperator(OPERATOR_EDEFAULT);
-        return;
-      case SchemePackage.OPERATION__NUMB:
-        getNumb().clear();
-        return;
-      case SchemePackage.OPERATION__NUMB2:
-        getNumb2().clear();
+      case SchemePackage.OPERATION__CALCULATE:
+        getCalculate().clear();
         return;
     }
     super.eUnset(featureID);
@@ -287,12 +218,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case SchemePackage.OPERATION__OPERATION:
         return OPERATION_EDEFAULT == null ? operation != null : !OPERATION_EDEFAULT.equals(operation);
-      case SchemePackage.OPERATION__OPERATOR:
-        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
-      case SchemePackage.OPERATION__NUMB:
-        return numb != null && !numb.isEmpty();
-      case SchemePackage.OPERATION__NUMB2:
-        return numb2 != null && !numb2.isEmpty();
+      case SchemePackage.OPERATION__CALCULATE:
+        return calculate != null && !calculate.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -310,12 +237,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (operation: ");
     result.append(operation);
-    result.append(", operator: ");
-    result.append(operator);
-    result.append(", numb: ");
-    result.append(numb);
-    result.append(", numb2: ");
-    result.append(numb2);
     result.append(')');
     return result.toString();
   }

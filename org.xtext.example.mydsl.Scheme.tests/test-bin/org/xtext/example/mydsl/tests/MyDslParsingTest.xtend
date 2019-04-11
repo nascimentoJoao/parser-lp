@@ -20,9 +20,9 @@ class MyDslParsingTest {
 	ParseHelper<Program> parseHelper
 	
 	@Test
-	def void loadModelPrint() {
+	def void testPrint() {
 		val result = parseHelper.parse('''
-			"(a)"
+			"0"
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -30,24 +30,9 @@ class MyDslParsingTest {
 	}
 	
 	@Test
-	def void loadModelIf() {
+	def void testSum() {
 		val result = parseHelper.parse('''
-			(if #t               
-			    "this is true"   
-			    "this is false")
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		//Assert.assertNotNull(result)
-		//val errors = result.eResource.errors
-		//Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
-	}
-	
-	@Test
-	def void loadModelSum() {
-		val result = parseHelper.parse('''
-			(+ 1 1)
+			(+ 1 1.5 6)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -55,9 +40,9 @@ class MyDslParsingTest {
 	}
 	
 	@Test
-	def void loadModelDef() {
+	def void testDefine() {
 		val result = parseHelper.parse('''
-			(define x 5)
+			(define x -5)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -65,37 +50,108 @@ class MyDslParsingTest {
 	}
 	
 	@Test
-	def void loadModelLoop() {
+	def void testComparison() {
 		val result = parseHelper.parse('''
-			(define (loop i)
-			  (when (< i 10)
-			    (printf "i=~a\n" i)
-			    (loop (add1 i))))
-			(loop 5)
+			(>= 3 3)
 		''')
-		Assert.assertNotNull(result)
+		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
-		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
 	
 	@Test
-	def void loadModelComp() {
+	def void testIf() {
 		val result = parseHelper.parse('''
-			(= 3 3.0)
+			(if (>= 3 3)
+				"this is true"
+				"this is false")
 		''')
-		Assert.assertNotNull(result)
+		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
-		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testSet() {
+		val result = parseHelper.parse('''
+			(define x "5")
+				(set! x "0")
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testAbs() {
+		val result = parseHelper.parse('''
+			(abs 10)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testCos() {
+		val result = parseHelper.parse('''
+			(cos 0.5)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testSquare() {
+		val result = parseHelper.parse('''
+			(square 0.5)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testList() {
+		val result = parseHelper.parse('''
+			(list 0.5 4 5 1 9)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testListLength() {
+		val result = parseHelper.parse('''
+			(length (list 0.5 4 5 1 9))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testNestedOperation() {
+		val result = parseHelper.parse('''
+			(+ 3 (+ 4 3))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
 	
 		@Test
-	def void loadModelSet() {
+	def void testStringAppend() {
 		val result = parseHelper.parse('''
-			(define x "5")			
-			(set! x "0")			
+			(string-append "Hello " "world!")
 		''')
-		Assert.assertNotNull(result)
+		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
-		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+	
+	
+	
 }

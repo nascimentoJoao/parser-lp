@@ -27,7 +27,7 @@ public interface Program extends EObject
 {
   /**
    * Returns the value of the '<em><b>Program</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.scheme.Form}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Program</em>' containment reference list.
@@ -35,6 +35,6 @@ public interface Program extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Form> getProgram();
+  EList<EObject> getProgram();
 
 } // Program

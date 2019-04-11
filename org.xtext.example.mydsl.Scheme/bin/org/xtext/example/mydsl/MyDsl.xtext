@@ -2,21 +2,23 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate scheme "http://www.xtext.org/example/mydsl/Scheme"
 
+/*
+ * Pontifícia Universidade Católica do Rio Grande do Sul
+ * Linguagens de Programação 2019/1
+ * Gregory Lagranha
+ * João Alberto do Nascimento
+ * 
+ * Fontes: 
+ * 		https://web-artanis.com/scheme.html
+ * 		https://www.scheme.com/tspl2d/grammar.html
+ */
+
 Program:
-	(program+=Form)*;
-	
-Form:
-	definition+=Definition | expression+=Expression
-;
+	(program+=Expression | program+=Definition)*;
 	
 Definition:
-	variableDefinition=VariableDefinition
-;
-
-VariableDefinition:
-	'(' 'define' variable=ID expression=Expression ')' | 
-	'(' 'define' '(' variable=ID variables+=ID* ')' body=Body ')' |
-	'(' 'define' '(' variable=ID variables+=ID* '.' var=ID ')' body=Body ')'
+	'(' 'define' cons=Constant expression=Expression ')'
+		| '(' 'define' '(' variable=ID variables+=ID* ')' body=Body ')'
 ;
 
 Body:
@@ -26,22 +28,22 @@ Body:
 Expression:
 	constant=Constant
 	| oper=Operation
+	| comp=Comparison
 	| cond=Conditional
 	| set=Set
-	| app=Application
-	| mult=MultipleCondition
+	| trig=Trigonometry
+	| list=ListNumbers
+	| listLength=ListLength
+	| nestedOperation=NestedOperation
+	| calculate=Calculate
 ;
 
 Comparison:
-	{Comparison} ( '(' ('<' | '>' | '=' | '>=' | '<=') num1=NUMBER num2=NUMBER ')' | BOOL)
+	{Comparison} ('(' ('<' | '>' | '=' | '>=' | '<=') num1=Number num2=Number ')' | BOOL)
 ;
 
-MultipleCondition:
-	'(' 'cond' ('(' comp+=Comparison exp+=Expression ')') ('(' 'else' expression=Expression ')')?
-;
-
-Application:
-	'(' expression=Expression expressions+=Expression* ')'
+Trigonometry:
+	trig = '(' MATH (numb+=Number) ')'
 ;
 
 Set:
@@ -53,46 +55,53 @@ Conditional:
 ;
 
 Constant:
-	BOOL | INT | DOUBLE | STRING | ID | LETTER
+	BOOL | DIGIT | DOUBLE | STRING | ID | LETTER | NEGATIVE
+;
+
+NestedOperation:
+	nestedOperation = '(' calculate+=Calculate operation+=Operation ')'
 ;
 
 Operation:
-	operation='(' operator=OPER '\\s' numb+=NUMBER* '\\s' numb2+=NUMBER* ')'
+	operation = '(' calculate+=Calculate ')'
 ;
 
-IDscheme:
-	//('^')?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-	
-	init=Initial subs+=Subsequent*
+Calculate:
+	calculate = OPER (numb+=Number*)
 ;
 
-Initial:
-	init = (LETTER | '!' | '$' | '%' | '&' | '*' | '/' | ':' | '<' | '=' | '>' | '?' | '~' | '_' | '^')
+ListNumbers:
+	{ListNumbers} '(' 'list' (number+=Number*) ')'
 ;
 
-Subsequent:
-	{Subsequent} (init=Initial | DIGIT | '.' | '+' | '-')
+ListLength:
+	{ListLength} '(' 'length' listNumbers+=ListNumbers ')'
+;
+
+Number:
+	DIGIT | DOUBLE
+;
+
+terminal MATH:
+	'cos' | 'abs' | 'square'
 ;
 
 terminal LETTER:
-	('a'..'z'|'A'..'Z')
-;
-
-terminal DIGIT:
-	('0'..'9')*
-;
+	('a'..'z'|'A'..'Z');
 
 terminal OPER:
-	'+' | '-' | '*' | '/' | 'expt';
+	'+' | '-' | '*' | '/' | 'expt' | 'quotient' | 'remainder';
 
 terminal BOOL:
 	'#t' | '#f';
 
-terminal DOUBLE:
-	INT '.' INT;
-	
-terminal NUMBER:
-	DIGIT | DOUBLE;
+terminal NEGATIVE:
+	'-' DIGIT
+;
 
-//terminal OPERCOMB:
-//	'<' | '>' | '=' | '>=' | '<=';
+terminal DOUBLE:
+	DIGIT '.' DIGIT;
+
+terminal DIGIT:
+	('0'..'9')*
+;

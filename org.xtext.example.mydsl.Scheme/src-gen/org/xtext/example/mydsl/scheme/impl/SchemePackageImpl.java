@@ -10,23 +10,21 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.example.mydsl.scheme.Application;
 import org.xtext.example.mydsl.scheme.Body;
+import org.xtext.example.mydsl.scheme.Calculate;
 import org.xtext.example.mydsl.scheme.Comparison;
 import org.xtext.example.mydsl.scheme.Conditional;
 import org.xtext.example.mydsl.scheme.Definition;
 import org.xtext.example.mydsl.scheme.Expression;
-import org.xtext.example.mydsl.scheme.Form;
-import org.xtext.example.mydsl.scheme.IDscheme;
-import org.xtext.example.mydsl.scheme.Initial;
-import org.xtext.example.mydsl.scheme.MultipleCondition;
+import org.xtext.example.mydsl.scheme.ListLength;
+import org.xtext.example.mydsl.scheme.ListNumbers;
+import org.xtext.example.mydsl.scheme.NestedOperation;
 import org.xtext.example.mydsl.scheme.Operation;
 import org.xtext.example.mydsl.scheme.Program;
 import org.xtext.example.mydsl.scheme.SchemeFactory;
 import org.xtext.example.mydsl.scheme.SchemePackage;
 import org.xtext.example.mydsl.scheme.Set;
-import org.xtext.example.mydsl.scheme.Subsequent;
-import org.xtext.example.mydsl.scheme.VariableDefinition;
+import org.xtext.example.mydsl.scheme.Trigonometry;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,21 +46,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass formEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass definitionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -90,14 +74,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass multipleConditionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass applicationEClass = null;
+  private EClass trigonometryEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,6 +95,13 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass nestedOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass operationEClass = null;
 
   /**
@@ -125,21 +109,21 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass iDschemeEClass = null;
+  private EClass calculateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass initialEClass = null;
+  private EClass listNumbersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass subsequentEClass = null;
+  private EClass listLengthEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -232,39 +216,6 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EClass getForm()
-  {
-    return formEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getForm_Definition()
-  {
-    return (EReference)formEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getForm_Expression()
-  {
-    return (EReference)formEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getDefinition()
   {
     return definitionEClass;
@@ -276,9 +227,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getDefinition_VariableDefinition()
+  public EAttribute getDefinition_Cons()
   {
-    return (EReference)definitionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -287,9 +238,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EClass getVariableDefinition()
+  public EReference getDefinition_Expression()
   {
-    return variableDefinitionEClass;
+    return (EReference)definitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -298,9 +249,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getVariableDefinition_Variable()
+  public EAttribute getDefinition_Variable()
   {
-    return (EAttribute)variableDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -309,9 +260,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getVariableDefinition_Expression()
+  public EAttribute getDefinition_Variables()
   {
-    return (EReference)variableDefinitionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -320,31 +271,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getVariableDefinition_Variables()
+  public EReference getDefinition_Body()
   {
-    return (EAttribute)variableDefinitionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVariableDefinition_Body()
-  {
-    return (EReference)variableDefinitionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVariableDefinition_Var()
-  {
-    return (EAttribute)variableDefinitionEClass.getEStructuralFeatures().get(4);
+    return (EReference)definitionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -419,7 +348,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getExpression_Cond()
+  public EReference getExpression_Comp()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(2);
   }
@@ -430,7 +359,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getExpression_Set()
+  public EReference getExpression_Cond()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(3);
   }
@@ -441,7 +370,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getExpression_App()
+  public EReference getExpression_Set()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(4);
   }
@@ -452,9 +381,53 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getExpression_Mult()
+  public EReference getExpression_Trig()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpression_List()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpression_ListLength()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpression_NestedOperation()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpression_Calculate()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -496,9 +469,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EClass getMultipleCondition()
+  public EClass getTrigonometry()
   {
-    return multipleConditionEClass;
+    return trigonometryEClass;
   }
 
   /**
@@ -507,9 +480,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getMultipleCondition_Comp()
+  public EAttribute getTrigonometry_Trig()
   {
-    return (EReference)multipleConditionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)trigonometryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -518,53 +491,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getMultipleCondition_Exp()
+  public EAttribute getTrigonometry_Numb()
   {
-    return (EReference)multipleConditionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getMultipleCondition_Expression()
-  {
-    return (EReference)multipleConditionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getApplication()
-  {
-    return applicationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getApplication_Expression()
-  {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getApplication_Expressions()
-  {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)trigonometryEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -650,6 +579,50 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
+  public EClass getNestedOperation()
+  {
+    return nestedOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNestedOperation_NestedOperation()
+  {
+    return (EAttribute)nestedOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedOperation_Calculate()
+  {
+    return (EReference)nestedOperationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedOperation_Operation()
+  {
+    return (EReference)nestedOperationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getOperation()
   {
     return operationEClass;
@@ -672,9 +645,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getOperation_Operator()
+  public EReference getOperation_Calculate()
   {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+    return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -683,9 +656,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getOperation_Numb()
+  public EClass getCalculate()
   {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
+    return calculateEClass;
   }
 
   /**
@@ -694,9 +667,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getOperation_Numb2()
+  public EAttribute getCalculate_Calculate()
   {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)calculateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -705,9 +678,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EClass getIDscheme()
+  public EAttribute getCalculate_Numb()
   {
-    return iDschemeEClass;
+    return (EAttribute)calculateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -716,9 +689,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getIDscheme_Init()
+  public EClass getListNumbers()
   {
-    return (EReference)iDschemeEClass.getEStructuralFeatures().get(0);
+    return listNumbersEClass;
   }
 
   /**
@@ -727,9 +700,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EReference getIDscheme_Subs()
+  public EAttribute getListNumbers_Number()
   {
-    return (EReference)iDschemeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)listNumbersEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -738,9 +711,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EClass getInitial()
+  public EClass getListLength()
   {
-    return initialEClass;
+    return listLengthEClass;
   }
 
   /**
@@ -749,31 +722,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   @Override
-  public EAttribute getInitial_Init()
+  public EReference getListLength_ListNumbers()
   {
-    return (EAttribute)initialEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSubsequent()
-  {
-    return subsequentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSubsequent_Init()
-  {
-    return (EReference)subsequentEClass.getEStructuralFeatures().get(0);
+    return (EReference)listLengthEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -810,19 +761,12 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     programEClass = createEClass(PROGRAM);
     createEReference(programEClass, PROGRAM__PROGRAM);
 
-    formEClass = createEClass(FORM);
-    createEReference(formEClass, FORM__DEFINITION);
-    createEReference(formEClass, FORM__EXPRESSION);
-
     definitionEClass = createEClass(DEFINITION);
-    createEReference(definitionEClass, DEFINITION__VARIABLE_DEFINITION);
-
-    variableDefinitionEClass = createEClass(VARIABLE_DEFINITION);
-    createEAttribute(variableDefinitionEClass, VARIABLE_DEFINITION__VARIABLE);
-    createEReference(variableDefinitionEClass, VARIABLE_DEFINITION__EXPRESSION);
-    createEAttribute(variableDefinitionEClass, VARIABLE_DEFINITION__VARIABLES);
-    createEReference(variableDefinitionEClass, VARIABLE_DEFINITION__BODY);
-    createEAttribute(variableDefinitionEClass, VARIABLE_DEFINITION__VAR);
+    createEAttribute(definitionEClass, DEFINITION__CONS);
+    createEReference(definitionEClass, DEFINITION__EXPRESSION);
+    createEAttribute(definitionEClass, DEFINITION__VARIABLE);
+    createEAttribute(definitionEClass, DEFINITION__VARIABLES);
+    createEReference(definitionEClass, DEFINITION__BODY);
 
     bodyEClass = createEClass(BODY);
     createEReference(bodyEClass, BODY__DEFINITION);
@@ -831,23 +775,22 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     expressionEClass = createEClass(EXPRESSION);
     createEAttribute(expressionEClass, EXPRESSION__CONSTANT);
     createEReference(expressionEClass, EXPRESSION__OPER);
+    createEReference(expressionEClass, EXPRESSION__COMP);
     createEReference(expressionEClass, EXPRESSION__COND);
     createEReference(expressionEClass, EXPRESSION__SET);
-    createEReference(expressionEClass, EXPRESSION__APP);
-    createEReference(expressionEClass, EXPRESSION__MULT);
+    createEReference(expressionEClass, EXPRESSION__TRIG);
+    createEReference(expressionEClass, EXPRESSION__LIST);
+    createEReference(expressionEClass, EXPRESSION__LIST_LENGTH);
+    createEReference(expressionEClass, EXPRESSION__NESTED_OPERATION);
+    createEReference(expressionEClass, EXPRESSION__CALCULATE);
 
     comparisonEClass = createEClass(COMPARISON);
     createEAttribute(comparisonEClass, COMPARISON__NUM1);
     createEAttribute(comparisonEClass, COMPARISON__NUM2);
 
-    multipleConditionEClass = createEClass(MULTIPLE_CONDITION);
-    createEReference(multipleConditionEClass, MULTIPLE_CONDITION__COMP);
-    createEReference(multipleConditionEClass, MULTIPLE_CONDITION__EXP);
-    createEReference(multipleConditionEClass, MULTIPLE_CONDITION__EXPRESSION);
-
-    applicationEClass = createEClass(APPLICATION);
-    createEReference(applicationEClass, APPLICATION__EXPRESSION);
-    createEReference(applicationEClass, APPLICATION__EXPRESSIONS);
+    trigonometryEClass = createEClass(TRIGONOMETRY);
+    createEAttribute(trigonometryEClass, TRIGONOMETRY__TRIG);
+    createEAttribute(trigonometryEClass, TRIGONOMETRY__NUMB);
 
     setEClass = createEClass(SET);
     createEAttribute(setEClass, SET__CONS);
@@ -858,21 +801,24 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     createEReference(conditionalEClass, CONDITIONAL__IFTRUE);
     createEReference(conditionalEClass, CONDITIONAL__ELSE);
 
+    nestedOperationEClass = createEClass(NESTED_OPERATION);
+    createEAttribute(nestedOperationEClass, NESTED_OPERATION__NESTED_OPERATION);
+    createEReference(nestedOperationEClass, NESTED_OPERATION__CALCULATE);
+    createEReference(nestedOperationEClass, NESTED_OPERATION__OPERATION);
+
     operationEClass = createEClass(OPERATION);
     createEAttribute(operationEClass, OPERATION__OPERATION);
-    createEAttribute(operationEClass, OPERATION__OPERATOR);
-    createEAttribute(operationEClass, OPERATION__NUMB);
-    createEAttribute(operationEClass, OPERATION__NUMB2);
+    createEReference(operationEClass, OPERATION__CALCULATE);
 
-    iDschemeEClass = createEClass(IDSCHEME);
-    createEReference(iDschemeEClass, IDSCHEME__INIT);
-    createEReference(iDschemeEClass, IDSCHEME__SUBS);
+    calculateEClass = createEClass(CALCULATE);
+    createEAttribute(calculateEClass, CALCULATE__CALCULATE);
+    createEAttribute(calculateEClass, CALCULATE__NUMB);
 
-    initialEClass = createEClass(INITIAL);
-    createEAttribute(initialEClass, INITIAL__INIT);
+    listNumbersEClass = createEClass(LIST_NUMBERS);
+    createEAttribute(listNumbersEClass, LIST_NUMBERS__NUMBER);
 
-    subsequentEClass = createEClass(SUBSEQUENT);
-    createEReference(subsequentEClass, SUBSEQUENT__INIT);
+    listLengthEClass = createEClass(LIST_LENGTH);
+    createEReference(listLengthEClass, LIST_LENGTH__LIST_NUMBERS);
   }
 
   /**
@@ -907,21 +853,14 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getProgram_Program(), this.getForm(), null, "program", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getForm_Definition(), this.getDefinition(), null, "definition", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getForm_Expression(), this.getExpression(), null, "expression", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_Program(), ecorePackage.getEObject(), null, "program", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDefinition_VariableDefinition(), this.getVariableDefinition(), null, "variableDefinition", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableDefinitionEClass, VariableDefinition.class, "VariableDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableDefinition_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariableDefinition_Expression(), this.getExpression(), null, "expression", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariableDefinition_Variables(), ecorePackage.getEString(), "variables", null, 0, -1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariableDefinition_Body(), this.getBody(), null, "body", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariableDefinition_Var(), ecorePackage.getEString(), "var", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Cons(), ecorePackage.getEString(), "cons", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinition_Expression(), this.getExpression(), null, "expression", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Variables(), ecorePackage.getEString(), "variables", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinition_Body(), this.getBody(), null, "body", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBody_Definition(), this.getDefinition(), null, "definition", null, 0, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -930,23 +869,22 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpression_Constant(), ecorePackage.getEString(), "constant", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Oper(), this.getOperation(), null, "oper", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Comp(), this.getComparison(), null, "comp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Cond(), this.getConditional(), null, "cond", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Set(), this.getSet(), null, "set", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_App(), this.getApplication(), null, "app", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_Mult(), this.getMultipleCondition(), null, "mult", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Trig(), this.getTrigonometry(), null, "trig", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_List(), this.getListNumbers(), null, "list", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_ListLength(), this.getListLength(), null, "listLength", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_NestedOperation(), this.getNestedOperation(), null, "nestedOperation", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Calculate(), this.getCalculate(), null, "calculate", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComparison_Num1(), ecorePackage.getEString(), "num1", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComparison_Num2(), ecorePackage.getEString(), "num2", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(multipleConditionEClass, MultipleCondition.class, "MultipleCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultipleCondition_Comp(), this.getComparison(), null, "comp", null, 0, -1, MultipleCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultipleCondition_Exp(), this.getExpression(), null, "exp", null, 0, -1, MultipleCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultipleCondition_Expression(), this.getExpression(), null, "expression", null, 0, 1, MultipleCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getApplication_Expression(), this.getExpression(), null, "expression", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(trigonometryEClass, Trigonometry.class, "Trigonometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTrigonometry_Trig(), ecorePackage.getEString(), "trig", null, 0, 1, Trigonometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTrigonometry_Numb(), ecorePackage.getEString(), "numb", null, 0, -1, Trigonometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(setEClass, Set.class, "Set", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSet_Cons(), ecorePackage.getEString(), "cons", null, 0, 1, Set.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -957,21 +895,24 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     initEReference(getConditional_Iftrue(), this.getExpression(), null, "iftrue", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConditional_Else(), this.getExpression(), null, "else", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(nestedOperationEClass, NestedOperation.class, "NestedOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNestedOperation_NestedOperation(), ecorePackage.getEString(), "nestedOperation", null, 0, 1, NestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedOperation_Calculate(), this.getCalculate(), null, "calculate", null, 0, -1, NestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedOperation_Operation(), this.getOperation(), null, "operation", null, 0, -1, NestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_Operation(), ecorePackage.getEString(), "operation", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Numb(), ecorePackage.getEString(), "numb", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Numb2(), ecorePackage.getEString(), "numb2", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_Calculate(), this.getCalculate(), null, "calculate", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(iDschemeEClass, IDscheme.class, "IDscheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIDscheme_Init(), this.getInitial(), null, "init", null, 0, 1, IDscheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIDscheme_Subs(), this.getSubsequent(), null, "subs", null, 0, -1, IDscheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(calculateEClass, Calculate.class, "Calculate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCalculate_Calculate(), ecorePackage.getEString(), "calculate", null, 0, 1, Calculate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCalculate_Numb(), ecorePackage.getEString(), "numb", null, 0, -1, Calculate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(initialEClass, Initial.class, "Initial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInitial_Init(), ecorePackage.getEString(), "init", null, 0, 1, Initial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listNumbersEClass, ListNumbers.class, "ListNumbers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getListNumbers_Number(), ecorePackage.getEString(), "number", null, 0, -1, ListNumbers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(subsequentEClass, Subsequent.class, "Subsequent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSubsequent_Init(), this.getInitial(), null, "init", null, 0, 1, Subsequent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listLengthEClass, ListLength.class, "ListLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListLength_ListNumbers(), this.getListNumbers(), null, "listNumbers", null, 0, -1, ListLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

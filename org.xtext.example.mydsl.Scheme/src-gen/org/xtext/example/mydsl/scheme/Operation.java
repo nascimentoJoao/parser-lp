@@ -17,9 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.scheme.Operation#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.Operation#getOperator <em>Operator</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.Operation#getNumb <em>Numb</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.scheme.Operation#getNumb2 <em>Numb2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Operation#getCalculate <em>Calculate</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.scheme.SchemePackage#getOperation()
@@ -51,49 +49,15 @@ public interface Operation extends EObject
   void setOperation(String value);
 
   /**
-   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * Returns the value of the '<em><b>Calculate</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.scheme.Calculate}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operator</em>' attribute.
-   * @see #setOperator(String)
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getOperation_Operator()
-   * @model
+   * @return the value of the '<em>Calculate</em>' containment reference list.
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getOperation_Calculate()
+   * @model containment="true"
    * @generated
    */
-  String getOperator();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Operation#getOperator <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operator</em>' attribute.
-   * @see #getOperator()
-   * @generated
-   */
-  void setOperator(String value);
-
-  /**
-   * Returns the value of the '<em><b>Numb</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Numb</em>' attribute list.
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getOperation_Numb()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getNumb();
-
-  /**
-   * Returns the value of the '<em><b>Numb2</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Numb2</em>' attribute list.
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getOperation_Numb2()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getNumb2();
+  EList<Calculate> getCalculate();
 
 } // Operation

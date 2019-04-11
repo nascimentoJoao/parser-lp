@@ -42,7 +42,7 @@ class MyDslParsingTest {
 	@Test
 	def void testDefine() {
 		val result = parseHelper.parse('''
-			(define x 5)
+			(define x -5)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -81,4 +81,77 @@ class MyDslParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+	
+	@Test
+	def void testAbs() {
+		val result = parseHelper.parse('''
+			(abs 10)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testCos() {
+		val result = parseHelper.parse('''
+			(cos 0.5)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testSquare() {
+		val result = parseHelper.parse('''
+			(square 0.5)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testList() {
+		val result = parseHelper.parse('''
+			(list 0.5 4 5 1 9)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testListLength() {
+		val result = parseHelper.parse('''
+			(length (list 0.5 4 5 1 9))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void testNestedOperation() {
+		val result = parseHelper.parse('''
+			(+ 3 (+ 4 3))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+		@Test
+	def void testStringAppend() {
+		val result = parseHelper.parse('''
+			(string-append "Hello " "world!")
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	
+	
 }

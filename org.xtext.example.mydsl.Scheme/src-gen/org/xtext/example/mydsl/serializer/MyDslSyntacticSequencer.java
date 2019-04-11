@@ -22,21 +22,19 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Comparison_EqualsSignKeyword_1_0_1_2_or_GreaterThanSignEqualsSignKeyword_1_0_1_3_or_GreaterThanSignKeyword_1_0_1_1_or_LessThanSignEqualsSignKeyword_1_0_1_4_or_LessThanSignKeyword_1_0_1_0;
-	protected AbstractElementAlias match_Subsequent_DIGITTerminalRuleCall_1_1_or_FullStopKeyword_1_2_or_HyphenMinusKeyword_1_4_or_PlusSignKeyword_1_3;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
 		match_Comparison_EqualsSignKeyword_1_0_1_2_or_GreaterThanSignEqualsSignKeyword_1_0_1_3_or_GreaterThanSignKeyword_1_0_1_1_or_LessThanSignEqualsSignKeyword_1_0_1_4_or_LessThanSignKeyword_1_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getEqualsSignKeyword_1_0_1_2()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_0_1_3()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getGreaterThanSignKeyword_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_0_1_4()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getLessThanSignKeyword_1_0_1_0()));
-		match_Subsequent_DIGITTerminalRuleCall_1_1_or_FullStopKeyword_1_2_or_HyphenMinusKeyword_1_4_or_PlusSignKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSubsequentAccess().getDIGITTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getSubsequentAccess().getFullStopKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getSubsequentAccess().getHyphenMinusKeyword_1_4()), new TokenAlias(false, false, grammarAccess.getSubsequentAccess().getPlusSignKeyword_1_3()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getBOOLRule())
 			return getBOOLToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDIGITRule())
-			return getDIGITToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMATHRule())
+			return getMATHToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -51,14 +49,14 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal DIGIT:
-	 * 	('0'..'9')*
+	 * terminal MATH:
+	 * 	'cos' | 'abs' | 'square'
 	 * ;
 	 */
-	protected String getDIGITToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getMATHToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "";
+		return "cos";
 	}
 	
 	@Override
@@ -69,8 +67,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Comparison_EqualsSignKeyword_1_0_1_2_or_GreaterThanSignEqualsSignKeyword_1_0_1_3_or_GreaterThanSignKeyword_1_0_1_1_or_LessThanSignEqualsSignKeyword_1_0_1_4_or_LessThanSignKeyword_1_0_1_0.equals(syntax))
 				emit_Comparison_EqualsSignKeyword_1_0_1_2_or_GreaterThanSignEqualsSignKeyword_1_0_1_3_or_GreaterThanSignKeyword_1_0_1_1_or_LessThanSignEqualsSignKeyword_1_0_1_4_or_LessThanSignKeyword_1_0_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Subsequent_DIGITTerminalRuleCall_1_1_or_FullStopKeyword_1_2_or_HyphenMinusKeyword_1_4_or_PlusSignKeyword_1_3.equals(syntax))
-				emit_Subsequent_DIGITTerminalRuleCall_1_1_or_FullStopKeyword_1_2_or_HyphenMinusKeyword_1_4_or_PlusSignKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -80,20 +76,9 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '<' | '>' | '=' | '>=' | '<='
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '(' (ambiguity) num1=NUMBER
+	 *     (rule start) '(' (ambiguity) num1=Number
 	 */
 	protected void emit_Comparison_EqualsSignKeyword_1_0_1_2_or_GreaterThanSignEqualsSignKeyword_1_0_1_3_or_GreaterThanSignKeyword_1_0_1_1_or_LessThanSignEqualsSignKeyword_1_0_1_4_or_LessThanSignKeyword_1_0_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     DIGIT | '.' | '+' | '-'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Subsequent_DIGITTerminalRuleCall_1_1_or_FullStopKeyword_1_2_or_HyphenMinusKeyword_1_4_or_PlusSignKeyword_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

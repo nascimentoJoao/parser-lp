@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.scheme;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getVariableDefinition <em>Variable Definition</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getCons <em>Cons</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getVariables <em>Variables</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.scheme.Definition#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition()
@@ -24,25 +30,103 @@ import org.eclipse.emf.ecore.EObject;
 public interface Definition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Variable Definition</b></em>' containment reference.
+   * Returns the value of the '<em><b>Cons</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Variable Definition</em>' containment reference.
-   * @see #setVariableDefinition(VariableDefinition)
-   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_VariableDefinition()
+   * @return the value of the '<em>Cons</em>' attribute.
+   * @see #setCons(String)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_Cons()
+   * @model
+   * @generated
+   */
+  String getCons();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Definition#getCons <em>Cons</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Cons</em>' attribute.
+   * @see #getCons()
+   * @generated
+   */
+  void setCons(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_Expression()
    * @model containment="true"
    * @generated
    */
-  VariableDefinition getVariableDefinition();
+  Expression getExpression();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Definition#getVariableDefinition <em>Variable Definition</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Definition#getExpression <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Variable Definition</em>' containment reference.
-   * @see #getVariableDefinition()
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
    * @generated
    */
-  void setVariableDefinition(VariableDefinition value);
+  void setExpression(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variable</em>' attribute.
+   * @see #setVariable(String)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_Variable()
+   * @model
+   * @generated
+   */
+  String getVariable();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Definition#getVariable <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Variable</em>' attribute.
+   * @see #getVariable()
+   * @generated
+   */
+  void setVariable(String value);
+
+  /**
+   * Returns the value of the '<em><b>Variables</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variables</em>' attribute list.
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_Variables()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getVariables();
+
+  /**
+   * Returns the value of the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Body</em>' containment reference.
+   * @see #setBody(Body)
+   * @see org.xtext.example.mydsl.scheme.SchemePackage#getDefinition_Body()
+   * @model containment="true"
+   * @generated
+   */
+  Body getBody();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.scheme.Definition#getBody <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Body</em>' containment reference.
+   * @see #getBody()
+   * @generated
+   */
+  void setBody(Body value);
 
 } // Definition

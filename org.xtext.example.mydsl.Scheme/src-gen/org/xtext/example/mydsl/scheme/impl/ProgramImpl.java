@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -17,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.scheme.Form;
 import org.xtext.example.mydsl.scheme.Program;
 import org.xtext.example.mydsl.scheme.SchemePackage;
 
@@ -44,7 +44,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @generated
    * @ordered
    */
-  protected EList<Form> program;
+  protected EList<EObject> program;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +73,11 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @generated
    */
   @Override
-  public EList<Form> getProgram()
+  public EList<EObject> getProgram()
   {
     if (program == null)
     {
-      program = new EObjectContainmentEList<Form>(Form.class, this, SchemePackage.PROGRAM__PROGRAM);
+      program = new EObjectContainmentEList<EObject>(EObject.class, this, SchemePackage.PROGRAM__PROGRAM);
     }
     return program;
   }
@@ -127,7 +127,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case SchemePackage.PROGRAM__PROGRAM:
         getProgram().clear();
-        getProgram().addAll((Collection<? extends Form>)newValue);
+        getProgram().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

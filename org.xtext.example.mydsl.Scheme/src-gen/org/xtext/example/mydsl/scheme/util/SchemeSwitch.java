@@ -80,24 +80,10 @@ public class SchemeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SchemePackage.FORM:
-      {
-        Form form = (Form)theEObject;
-        T result = caseForm(form);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SchemePackage.DEFINITION:
       {
         Definition definition = (Definition)theEObject;
         T result = caseDefinition(definition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SchemePackage.VARIABLE_DEFINITION:
-      {
-        VariableDefinition variableDefinition = (VariableDefinition)theEObject;
-        T result = caseVariableDefinition(variableDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,17 +108,10 @@ public class SchemeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SchemePackage.MULTIPLE_CONDITION:
+      case SchemePackage.TRIGONOMETRY:
       {
-        MultipleCondition multipleCondition = (MultipleCondition)theEObject;
-        T result = caseMultipleCondition(multipleCondition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SchemePackage.APPLICATION:
-      {
-        Application application = (Application)theEObject;
-        T result = caseApplication(application);
+        Trigonometry trigonometry = (Trigonometry)theEObject;
+        T result = caseTrigonometry(trigonometry);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,6 +129,13 @@ public class SchemeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SchemePackage.NESTED_OPERATION:
+      {
+        NestedOperation nestedOperation = (NestedOperation)theEObject;
+        T result = caseNestedOperation(nestedOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SchemePackage.OPERATION:
       {
         Operation operation = (Operation)theEObject;
@@ -157,24 +143,24 @@ public class SchemeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SchemePackage.IDSCHEME:
+      case SchemePackage.CALCULATE:
       {
-        IDscheme iDscheme = (IDscheme)theEObject;
-        T result = caseIDscheme(iDscheme);
+        Calculate calculate = (Calculate)theEObject;
+        T result = caseCalculate(calculate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SchemePackage.INITIAL:
+      case SchemePackage.LIST_NUMBERS:
       {
-        Initial initial = (Initial)theEObject;
-        T result = caseInitial(initial);
+        ListNumbers listNumbers = (ListNumbers)theEObject;
+        T result = caseListNumbers(listNumbers);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SchemePackage.SUBSEQUENT:
+      case SchemePackage.LIST_LENGTH:
       {
-        Subsequent subsequent = (Subsequent)theEObject;
-        T result = caseSubsequent(subsequent);
+        ListLength listLength = (ListLength)theEObject;
+        T result = caseListLength(listLength);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -199,22 +185,6 @@ public class SchemeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Form</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseForm(Form object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -226,22 +196,6 @@ public class SchemeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDefinition(Definition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableDefinition(VariableDefinition object)
   {
     return null;
   }
@@ -295,33 +249,17 @@ public class SchemeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiple Condition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Trigonometry</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiple Condition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Trigonometry</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMultipleCondition(MultipleCondition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Application</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseApplication(Application object)
+  public T caseTrigonometry(Trigonometry object)
   {
     return null;
   }
@@ -359,6 +297,22 @@ public class SchemeSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Nested Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nested Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNestedOperation(NestedOperation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -375,49 +329,49 @@ public class SchemeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>IDscheme</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Calculate</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>IDscheme</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Calculate</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIDscheme(IDscheme object)
+  public T caseCalculate(Calculate object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Initial</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>List Numbers</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Initial</em>'.
+   * @return the result of interpreting the object as an instance of '<em>List Numbers</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInitial(Initial object)
+  public T caseListNumbers(ListNumbers object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Subsequent</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>List Length</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Subsequent</em>'.
+   * @return the result of interpreting the object as an instance of '<em>List Length</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSubsequent(Subsequent object)
+  public T caseListLength(ListLength object)
   {
     return null;
   }

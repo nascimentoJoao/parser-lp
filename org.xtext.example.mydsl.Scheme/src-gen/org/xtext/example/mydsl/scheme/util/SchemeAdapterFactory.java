@@ -81,19 +81,9 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
         return createProgramAdapter();
       }
       @Override
-      public Adapter caseForm(Form object)
-      {
-        return createFormAdapter();
-      }
-      @Override
       public Adapter caseDefinition(Definition object)
       {
         return createDefinitionAdapter();
-      }
-      @Override
-      public Adapter caseVariableDefinition(VariableDefinition object)
-      {
-        return createVariableDefinitionAdapter();
       }
       @Override
       public Adapter caseBody(Body object)
@@ -111,14 +101,9 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
         return createComparisonAdapter();
       }
       @Override
-      public Adapter caseMultipleCondition(MultipleCondition object)
+      public Adapter caseTrigonometry(Trigonometry object)
       {
-        return createMultipleConditionAdapter();
-      }
-      @Override
-      public Adapter caseApplication(Application object)
-      {
-        return createApplicationAdapter();
+        return createTrigonometryAdapter();
       }
       @Override
       public Adapter caseSet(Set object)
@@ -131,24 +116,29 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
         return createConditionalAdapter();
       }
       @Override
+      public Adapter caseNestedOperation(NestedOperation object)
+      {
+        return createNestedOperationAdapter();
+      }
+      @Override
       public Adapter caseOperation(Operation object)
       {
         return createOperationAdapter();
       }
       @Override
-      public Adapter caseIDscheme(IDscheme object)
+      public Adapter caseCalculate(Calculate object)
       {
-        return createIDschemeAdapter();
+        return createCalculateAdapter();
       }
       @Override
-      public Adapter caseInitial(Initial object)
+      public Adapter caseListNumbers(ListNumbers object)
       {
-        return createInitialAdapter();
+        return createListNumbersAdapter();
       }
       @Override
-      public Adapter caseSubsequent(Subsequent object)
+      public Adapter caseListLength(ListLength object)
       {
-        return createSubsequentAdapter();
+        return createListLengthAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -188,21 +178,6 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Form <em>Form</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.Form
-   * @generated
-   */
-  public Adapter createFormAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Definition <em>Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -213,21 +188,6 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDefinitionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.VariableDefinition <em>Variable Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.VariableDefinition
-   * @generated
-   */
-  public Adapter createVariableDefinitionAdapter()
   {
     return null;
   }
@@ -278,31 +238,16 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.MultipleCondition <em>Multiple Condition</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Trigonometry <em>Trigonometry</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.MultipleCondition
+   * @see org.xtext.example.mydsl.scheme.Trigonometry
    * @generated
    */
-  public Adapter createMultipleConditionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Application <em>Application</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.Application
-   * @generated
-   */
-  public Adapter createApplicationAdapter()
+  public Adapter createTrigonometryAdapter()
   {
     return null;
   }
@@ -338,6 +283,21 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.NestedOperation <em>Nested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.scheme.NestedOperation
+   * @generated
+   */
+  public Adapter createNestedOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Operation <em>Operation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -353,46 +313,46 @@ public class SchemeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.IDscheme <em>IDscheme</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Calculate <em>Calculate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.IDscheme
+   * @see org.xtext.example.mydsl.scheme.Calculate
    * @generated
    */
-  public Adapter createIDschemeAdapter()
+  public Adapter createCalculateAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Initial <em>Initial</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.ListNumbers <em>List Numbers</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.Initial
+   * @see org.xtext.example.mydsl.scheme.ListNumbers
    * @generated
    */
-  public Adapter createInitialAdapter()
+  public Adapter createListNumbersAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.Subsequent <em>Subsequent</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.scheme.ListLength <em>List Length</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.scheme.Subsequent
+   * @see org.xtext.example.mydsl.scheme.ListLength
    * @generated
    */
-  public Adapter createSubsequentAdapter()
+  public Adapter createListLengthAdapter()
   {
     return null;
   }

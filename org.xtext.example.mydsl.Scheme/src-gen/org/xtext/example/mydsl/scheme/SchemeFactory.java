@@ -33,15 +33,6 @@ public interface SchemeFactory extends EFactory
   Program createProgram();
 
   /**
-   * Returns a new object of class '<em>Form</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Form</em>'.
-   * @generated
-   */
-  Form createForm();
-
-  /**
    * Returns a new object of class '<em>Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,15 +40,6 @@ public interface SchemeFactory extends EFactory
    * @generated
    */
   Definition createDefinition();
-
-  /**
-   * Returns a new object of class '<em>Variable Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Definition</em>'.
-   * @generated
-   */
-  VariableDefinition createVariableDefinition();
 
   /**
    * Returns a new object of class '<em>Body</em>'.
@@ -87,22 +69,13 @@ public interface SchemeFactory extends EFactory
   Comparison createComparison();
 
   /**
-   * Returns a new object of class '<em>Multiple Condition</em>'.
+   * Returns a new object of class '<em>Trigonometry</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiple Condition</em>'.
+   * @return a new object of class '<em>Trigonometry</em>'.
    * @generated
    */
-  MultipleCondition createMultipleCondition();
-
-  /**
-   * Returns a new object of class '<em>Application</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Application</em>'.
-   * @generated
-   */
-  Application createApplication();
+  Trigonometry createTrigonometry();
 
   /**
    * Returns a new object of class '<em>Set</em>'.
@@ -123,6 +96,15 @@ public interface SchemeFactory extends EFactory
   Conditional createConditional();
 
   /**
+   * Returns a new object of class '<em>Nested Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nested Operation</em>'.
+   * @generated
+   */
+  NestedOperation createNestedOperation();
+
+  /**
    * Returns a new object of class '<em>Operation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,31 +114,31 @@ public interface SchemeFactory extends EFactory
   Operation createOperation();
 
   /**
-   * Returns a new object of class '<em>IDscheme</em>'.
+   * Returns a new object of class '<em>Calculate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>IDscheme</em>'.
+   * @return a new object of class '<em>Calculate</em>'.
    * @generated
    */
-  IDscheme createIDscheme();
+  Calculate createCalculate();
 
   /**
-   * Returns a new object of class '<em>Initial</em>'.
+   * Returns a new object of class '<em>List Numbers</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Initial</em>'.
+   * @return a new object of class '<em>List Numbers</em>'.
    * @generated
    */
-  Initial createInitial();
+  ListNumbers createListNumbers();
 
   /**
-   * Returns a new object of class '<em>Subsequent</em>'.
+   * Returns a new object of class '<em>List Length</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Subsequent</em>'.
+   * @return a new object of class '<em>List Length</em>'.
    * @generated
    */
-  Subsequent createSubsequent();
+  ListLength createListLength();
 
   /**
    * Returns the package supported by this factory.
